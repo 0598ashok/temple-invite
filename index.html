@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sacred Union — Priya & Arjun Wedding Invitation</title>
+  <meta name="description" content="You are warmly invited to the sacred wedding ceremony of Priya & Arjun. A traditional South Indian temple wedding celebration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Noto+Serif+Tamil:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ════════════════════════════════════ LOADING SCREEN ════════════════════════════════════ -->
+<div id="loader" class="loader">
+  <div class="loader-mandala">
+    <svg viewBox="0 0 200 200" class="mandala-svg">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+      <circle cx="100" cy="100" r="75" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.6"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+      <g class="mandala-petals">
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6"/>
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6" transform="rotate(45,100,100)"/>
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6" transform="rotate(90,100,100)"/>
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6" transform="rotate(135,100,100)"/>
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6" transform="rotate(180,100,100)"/>
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6" transform="rotate(225,100,100)"/>
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6" transform="rotate(270,100,100)"/>
+        <ellipse cx="100" cy="30" rx="8" ry="20" fill="#d4af37" opacity="0.6" transform="rotate(315,100,100)"/>
+      </g>
+      <circle cx="100" cy="100" r="12" fill="#d4af37" opacity="0.8"/>
+    </svg>
+  </div>
+  <div class="loader-text">
+    <span class="loader-om">ॐ</span>
+    <p>Loading Sacred Invitation...</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ THREE.JS CANVAS ════════════════════════════════════ -->
+<canvas id="three-canvas"></canvas>
+
+<!-- ════════════════════════════════════ PETAL CANVAS ════════════════════════════════════ -->
+<canvas id="petal-canvas"></canvas>
+
+<!-- ════════════════════════════════════ SECTION 1: HERO ════════════════════════════════════ -->
+<section id="hero" class="hero-section">
+  <div class="hero-parallax-bg" id="hero-bg">
+    <div class="hero-bg-image"></div>
+    <div class="hero-overlay"></div>
+    <div class="light-rays">
+      <div class="ray ray-1"></div>
+      <div class="ray ray-2"></div>
+      <div class="ray ray-3"></div>
+      <div class="ray ray-4"></div>
+      <div class="ray ray-5"></div>
+    </div>
+    <div class="floating-diyas">
+      <div class="diya diya-1">🪔</div>
+      <div class="diya diya-2">🪔</div>
+      <div class="diya diya-3">🪔</div>
+      <div class="diya diya-4">🪔</div>
+    </div>
+  </div>
+
+  <div class="hero-content" id="hero-content">
+    <div class="hero-top-ornament">
+      <svg viewBox="0 0 400 40" class="ornament-svg">
+        <line x1="0" y1="20" x2="150" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6"/>
+        <circle cx="160" cy="20" r="4" fill="#d4af37" opacity="0.8"/>
+        <circle cx="175" cy="20" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <circle cx="200" cy="20" r="10" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="200" cy="20" r="4" fill="#d4af37"/>
+        <circle cx="225" cy="20" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <circle cx="240" cy="20" r="4" fill="#d4af37" opacity="0.8"/>
+        <line x1="250" y1="20" x2="400" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="hero-om">ॐ</div>
+    <p class="hero-together">Together With Their Families</p>
+
+    <div class="hero-bell-container">
+      <div class="bell-wrapper" id="temple-bell">
+        <svg viewBox="0 0 80 100" class="bell-svg">
+          <path d="M40,5 C40,5 20,15 15,40 C10,65 5,75 5,80 C5,80 20,85 40,85 C60,85 75,80 75,80 C75,75 70,65 65,40 C60,15 40,5 40,5Z" fill="url(#bellGrad)" stroke="#d4af37" stroke-width="1.5"/>
+          <defs>
+            <linearGradient id="bellGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#d4af37"/>
+              <stop offset="50%" style="stop-color:#f5d47a"/>
+              <stop offset="100%" style="stop-color:#b8942a"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="40" cy="86" rx="15" ry="6" fill="#d4af37"/>
+          <circle cx="40" cy="92" r="5" fill="#8b6914"/>
+          <line x1="40" y1="5" x2="40" y2="0" stroke="#d4af37" stroke-width="2"/>
+          <line x1="30" y1="0" x2="50" y2="0" stroke="#d4af37" stroke-width="2"/>
+          <path d="M25,55 Q40,50 55,55" stroke="#b8942a" stroke-width="1" fill="none"/>
+          <path d="M22,65 Q40,60 58,65" stroke="#b8942a" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="bell-glow"></div>
+      </div>
+    </div>
+
+    <h1 class="hero-names">
+      <span class="bride-name hero-name" id="bride-hero-name">Priya</span>
+      <span class="name-divider">
+        <svg viewBox="0 0 120 30" class="divider-svg">
+          <line x1="0" y1="15" x2="40" y2="15" stroke="#d4af37" stroke-width="1"/>
+          <path d="M45,15 L55,5 L65,15 L55,25 Z" fill="#d4af37" opacity="0.8"/>
+          <path d="M70,15 L80,8 L90,15 L80,22 Z" fill="#d4af37" opacity="0.5"/>
+          <line x1="95" y1="15" x2="120" y2="15" stroke="#d4af37" stroke-width="1"/>
+        </svg>
+        <span class="ampersand">&amp;</span>
+      </span>
+      <span class="groom-name hero-name" id="groom-hero-name">Arjun</span>
+    </h1>
+
+    <div class="hero-invitation-text">
+      <p class="tamil-blessing">வாழ்வில் ஒரு புனித தருணம்</p>
+      <p class="invite-message">
+        "With the blessings of our elders,<br/>
+        we warmly invite you to celebrate<br/>
+        the sacred union of our hearts."
+      </p>
+    </div>
+
+    <div class="hero-details">
+      <div class="hero-detail-item">
+        <span class="detail-icon">📅</span>
+        <div>
+          <span class="detail-label">Wedding Date</span>
+          <span class="detail-value">February 14, 2026</span>
+        </div>
+      </div>
+      <div class="hero-detail-divider">✦</div>
+      <div class="hero-detail-item">
+        <span class="detail-icon">🕕</span>
+        <div>
+          <span class="detail-label">Auspicious Time</span>
+          <span class="detail-value">6:30 AM — Muhurtham</span>
+        </div>
+      </div>
+      <div class="hero-detail-divider">✦</div>
+      <div class="hero-detail-item">
+        <span class="detail-icon">🛕</span>
+        <div>
+          <span class="detail-label">Venue</span>
+          <span class="detail-value">Sri Ranganathaswamy Temple</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-bottom-ornament">
+      <svg viewBox="0 0 400 40" class="ornament-svg">
+        <line x1="0" y1="20" x2="150" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6"/>
+        <path d="M155,10 L170,20 L155,30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <path d="M175,5 L200,20 L175,35" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <path d="M225,10 L245,20 L225,30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <line x1="250" y1="20" x2="400" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="scroll-indicator" id="scroll-indicator">
+      <p class="scroll-text">Scroll to Continue</p>
+      <div class="scroll-arrow">
+        <svg viewBox="0 0 40 60" width="40" height="60">
+          <rect x="18" y="2" width="4" height="30" rx="2" fill="#d4af37" opacity="0.6"/>
+          <circle cx="20" cy="10" r="4" fill="#d4af37" class="scroll-dot"/>
+          <path d="M10,38 L20,50 L30,38" stroke="#d4af37" stroke-width="2" fill="none" opacity="0.8"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ SECTION 2: BRIDE & GROOM ════════════════════════════════════ -->
+<section id="couple" class="couple-section">
+  <div class="section-bg-pattern"></div>
+  
+  <div class="section-header" id="couple-header">
+    <div class="section-tag">The Couple</div>
+    <h2 class="section-title">A Union Blessed by the Divine</h2>
+    <div class="section-divider">
+      <svg viewBox="0 0 300 20">
+        <line x1="0" y1="10" x2="110" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+        <circle cx="120" cy="10" r="4" fill="#d4af37"/>
+        <circle cx="135" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="150" cy="10" r="4" fill="#d4af37"/>
+        <circle cx="165" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="180" cy="10" r="4" fill="#d4af37"/>
+        <line x1="190" y1="10" x2="300" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="couple-container">
+    <!-- Bride Card -->
+    <div class="person-card bride-card" id="bride-card">
+      <div class="card-inner">
+        <div class="card-portrait-frame">
+          <div class="portrait-border-outer">
+            <div class="portrait-border-inner">
+              <img data-asset="bride.png" src="" alt="Bride Priya in traditional South Indian bridal attire" class="portrait-img" id="bride-img" />
+              <div class="portrait-fallback">
+                <span>🌸</span>
+                <p>Bride</p>
+              </div>
+            </div>
+          </div>
+          <div class="portrait-glow bride-glow"></div>
+          <div class="floating-flowers">
+            <span class="flower f1">🌸</span>
+            <span class="flower f2">🌺</span>
+            <span class="flower f3">🌼</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="person-tag">The Bride</div>
+          <h3 class="person-name">Priya Subramaniam</h3>
+          <div class="person-parents">D/o Sri R. Subramaniam &amp; Smt. Lakshmi Subramaniam</div>
+          <p class="person-story">
+            A soul as gentle as jasmine, as radiant as the morning sun. Priya brings warmth, grace, and boundless love into every room she enters. Her laughter is music, her heart is home.
+          </p>
+          <div class="person-accent">
+            <svg viewBox="0 0 120 20">
+              <line x1="0" y1="10" x2="40" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+              <circle cx="50" cy="10" r="4" fill="#e8c14e"/>
+              <circle cx="60" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+              <circle cx="70" cy="10" r="4" fill="#e8c14e"/>
+              <line x1="80" y1="10" x2="120" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Lotus -->
+    <div class="couple-center" id="couple-center">
+      <div class="lotus-emblem">
+        <svg viewBox="0 0 120 120" class="lotus-svg">
+          <g class="lotus-petals-back">
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(0,60,60) translate(0,-15)"/>
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(45,60,60) translate(0,-15)"/>
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(90,60,60) translate(0,-15)"/>
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(135,60,60) translate(0,-15)"/>
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(180,60,60) translate(0,-15)"/>
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(225,60,60) translate(0,-15)"/>
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(270,60,60) translate(0,-15)"/>
+            <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3" transform="rotate(315,60,60) translate(0,-15)"/>
+          </g>
+          <g class="lotus-petals">
+            <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8"/>
+            <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(60,60,60)"/>
+            <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(120,60,60)"/>
+            <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(180,60,60)"/>
+            <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(240,60,60)"/>
+            <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(300,60,60)"/>
+          </g>
+          <circle cx="60" cy="60" r="14" fill="url(#lotusCenterGrad)"/>
+          <defs>
+            <radialGradient id="lotusCenterGrad">
+              <stop offset="0%" style="stop-color:#f5d47a"/>
+              <stop offset="100%" style="stop-color:#d4af37"/>
+            </radialGradient>
+          </defs>
+          <text x="60" y="65" text-anchor="middle" font-size="14" fill="#4a2500">❤</text>
+        </svg>
+      </div>
+      <div class="together-text">Together</div>
+      <div class="forever-text">Forever</div>
+    </div>
+
+    <!-- Groom Card -->
+    <div class="person-card groom-card" id="groom-card">
+      <div class="card-inner">
+        <div class="card-portrait-frame">
+          <div class="portrait-border-outer">
+            <div class="portrait-border-inner">
+              <img data-asset="groom.png" src="" alt="Groom Arjun in traditional South Indian wedding attire" class="portrait-img" id="groom-img" />
+              <div class="portrait-fallback">
+                <span>🌿</span>
+                <p>Groom</p>
+              </div>
+            </div>
+          </div>
+          <div class="portrait-glow groom-glow"></div>
+          <div class="floating-flowers">
+            <span class="flower f1">🌿</span>
+            <span class="flower f2">🌾</span>
+            <span class="flower f3">🍃</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="person-tag">The Groom</div>
+          <h3 class="person-name">Arjun Krishnamurthy</h3>
+          <div class="person-parents">S/o Sri K. Krishnamurthy &amp; Smt. Meena Krishnamurthy</div>
+          <p class="person-story">
+            A man of virtue, wisdom, and unwavering devotion. Arjun carries the strength of tradition and the warmth of a thousand sunsets in his heart — a true blessing to all who know him.
+          </p>
+          <div class="person-accent">
+            <svg viewBox="0 0 120 20">
+              <line x1="0" y1="10" x2="40" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+              <circle cx="50" cy="10" r="4" fill="#e8c14e"/>
+              <circle cx="60" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+              <circle cx="70" cy="10" r="4" fill="#e8c14e"/>
+              <line x1="80" y1="10" x2="120" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ SECTION 3: WEDDING DETAILS ════════════════════════════════════ -->
+<section id="details" class="details-section">
+  <div class="details-bg"></div>
+
+  <div class="section-header" id="details-header">
+    <div class="section-tag">Sacred Celebrations</div>
+    <h2 class="section-title">Wedding &amp; Reception</h2>
+    <div class="section-divider">
+      <svg viewBox="0 0 300 20">
+        <line x1="0" y1="10" x2="110" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+        <circle cx="120" cy="10" r="4" fill="#d4af37"/>
+        <circle cx="135" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="150" cy="10" r="4" fill="#d4af37"/>
+        <circle cx="165" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="180" cy="10" r="4" fill="#d4af37"/>
+        <line x1="190" y1="10" x2="300" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="details-cards">
+
+    <!-- Wedding Ceremony Card -->
+    <div class="event-card wedding-card" id="wedding-card">
+      <div class="card-venue-img">
+        <img data-asset="temple_venue.png" src="" alt="Sri Ranganathaswamy Temple wedding venue" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#2a0a0a,#4a1a0a)'" />
+        <div class="venue-img-overlay"></div>
+      </div>
+      <div class="card-glass-body">
+        <div class="event-icon">🛕</div>
+        <div class="event-badge">Wedding Ceremony</div>
+        <h3 class="event-title">The Sacred Muhurtham</h3>
+
+        <div class="event-details">
+          <div class="event-detail-row">
+            <span class="event-detail-icon">📅</span>
+            <div class="event-detail-text">
+              <span class="event-detail-label">Date</span>
+              <span class="event-detail-value">February 14, 2026 · Saturday</span>
+            </div>
+          </div>
+          <div class="event-detail-row">
+            <span class="event-detail-icon">⏰</span>
+            <div class="event-detail-text">
+              <span class="event-detail-label">Muhurtham Time</span>
+              <span class="event-detail-value">6:30 AM — 8:45 AM</span>
+            </div>
+          </div>
+          <div class="event-detail-row">
+            <span class="event-detail-icon">📍</span>
+            <div class="event-detail-text">
+              <span class="event-detail-label">Venue</span>
+              <span class="event-detail-value">Sri Ranganathaswamy Temple<br/><small>Srirangam, Tiruchirappalli, Tamil Nadu</small></span>
+            </div>
+          </div>
+        </div>
+
+        <p class="event-description">
+          Join us as Priya and Arjun exchange sacred vows beneath the divine gopuram, with the chanting of Vedic mantras and the fragrance of jasmine filling the air.
+        </p>
+
+        <div class="lotus-divider">
+          <span>🪷</span>
+          <svg viewBox="0 0 100 10" width="60"><line x1="0" y1="5" x2="100" y2="5" stroke="#d4af37" stroke-width="1" opacity="0.5"/></svg>
+          <span>🪷</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reception Card -->
+    <div class="event-card reception-card" id="reception-card">
+      <div class="card-venue-img">
+        <img data-asset="reception_venue.png" src="" alt="Grand reception hall" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#0a0a2a,#0a1a4a)'" />
+        <div class="venue-img-overlay"></div>
+      </div>
+      <div class="card-glass-body">
+        <div class="event-icon">🌟</div>
+        <div class="event-badge reception-badge">Grand Reception</div>
+        <h3 class="event-title">The Royal Celebration</h3>
+
+        <div class="event-details">
+          <div class="event-detail-row">
+            <span class="event-detail-icon">📅</span>
+            <div class="event-detail-text">
+              <span class="event-detail-label">Date</span>
+              <span class="event-detail-value">February 14, 2026 · Saturday</span>
+            </div>
+          </div>
+          <div class="event-detail-row">
+            <span class="event-detail-icon">⏰</span>
+            <div class="event-detail-text">
+              <span class="event-detail-label">Time</span>
+              <span class="event-detail-value">7:00 PM — 10:30 PM</span>
+            </div>
+          </div>
+          <div class="event-detail-row">
+            <span class="event-detail-icon">📍</span>
+            <div class="event-detail-text">
+              <span class="event-detail-label">Venue</span>
+              <span class="event-detail-value">The Grand Chola Palace<br/><small>Anna Salai, Chennai, Tamil Nadu</small></span>
+            </div>
+          </div>
+        </div>
+
+        <p class="event-description">
+          An evening of celebration, music, and joy as two families become one. Join us for a grand reception filled with warmth, laughter, and love.
+        </p>
+
+        <div class="lotus-divider">
+          <span>🌸</span>
+          <svg viewBox="0 0 100 10" width="60"><line x1="0" y1="5" x2="100" y2="5" stroke="#7eb8d4" stroke-width="1" opacity="0.5"/></svg>
+          <span>🌸</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ SECTION 4: LOCATION ════════════════════════════════════ -->
+<section id="location" class="location-section">
+  <div class="section-header" id="location-header">
+    <div class="section-tag">Find Your Way</div>
+    <h2 class="section-title">Venue Locations</h2>
+    <div class="section-divider">
+      <svg viewBox="0 0 300 20">
+        <line x1="0" y1="10" x2="110" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+        <circle cx="120" cy="10" r="4" fill="#d4af37"/>
+        <circle cx="135" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="150" cy="10" r="4" fill="#d4af37"/>
+        <circle cx="165" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="180" cy="10" r="4" fill="#d4af37"/>
+        <line x1="190" y1="10" x2="300" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="location-grid">
+    <div class="location-card" id="wedding-location">
+      <div class="location-icon">🛕</div>
+      <h3 class="location-title">Wedding Venue</h3>
+      <p class="location-name">Sri Ranganathaswamy Temple</p>
+      <p class="location-address">Srirangam, Tiruchirappalli,<br/>Tamil Nadu 620006</p>
+      <div class="location-buttons">
+        <a href="https://maps.google.com/?q=Sri+Ranganathaswamy+Temple+Srirangam" target="_blank" class="location-btn primary-btn" id="wedding-maps-btn">
+          <span>📍</span> Open in Maps
+        </a>
+        <a href="https://maps.google.com/?q=Sri+Ranganathaswamy+Temple+Srirangam&directionsMode=driving" target="_blank" class="location-btn secondary-btn" id="wedding-directions-btn">
+          <span>🧭</span> Get Directions
+        </a>
+      </div>
+    </div>
+
+    <div class="location-map-embed" id="map-embed">
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.85!2d78.6891!3d10.8651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5c9f03e2e69%3A0x5c1b4e1a59f8e0a!2sSri%20Ranganathaswamy%20Temple!5e0!3m2!1sen!2sin!4v1234567890"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wedding venue location map">
+        </iframe>
+        <div class="map-overlay-glow"></div>
+      </div>
+    </div>
+
+    <div class="location-card" id="reception-location">
+      <div class="location-icon">🌟</div>
+      <h3 class="location-title">Reception Venue</h3>
+      <p class="location-name">The Grand Chola Palace</p>
+      <p class="location-address">Anna Salai, Teynampet,<br/>Chennai, Tamil Nadu 600018</p>
+      <div class="location-buttons">
+        <a href="https://maps.google.com/?q=Grand+Chola+Chennai" target="_blank" class="location-btn primary-btn" id="reception-maps-btn">
+          <span>📍</span> Open in Maps
+        </a>
+        <a href="https://maps.google.com/?q=Grand+Chola+Chennai&directionsMode=driving" target="_blank" class="location-btn secondary-btn" id="reception-directions-btn">
+          <span>🧭</span> Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ FOOTER ════════════════════════════════════ -->
+<footer id="footer" class="site-footer">
+  <div class="footer-top-ornament">
+    <svg viewBox="0 0 600 60" class="footer-ornament-svg">
+      <line x1="0" y1="30" x2="220" y2="30" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+      <circle cx="230" cy="30" r="5" fill="#d4af37" opacity="0.6"/>
+      <circle cx="245" cy="30" r="10" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="265" cy="15" r="8" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="285" cy="5" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="300" cy="30" r="15" fill="none" stroke="#d4af37" stroke-width="2"/>
+      <circle cx="300" cy="30" r="7" fill="#d4af37" opacity="0.8"/>
+      <circle cx="315" cy="5" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="335" cy="15" r="8" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="355" cy="30" r="10" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="370" cy="30" r="5" fill="#d4af37" opacity="0.6"/>
+      <line x1="380" y1="30" x2="600" y2="30" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-om">ॐ</div>
+    <h2 class="footer-names">Priya &amp; Arjun</h2>
+    <p class="footer-date">February 14, 2026 · 6:30 AM</p>
+    <p class="footer-tagline">"Your presence is the greatest gift."</p>
+
+    <div class="footer-divider">
+      <svg viewBox="0 0 200 20" width="200">
+        <line x1="0" y1="10" x2="80" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+        <circle cx="90" cy="10" r="4" fill="#d4af37" opacity="0.6"/>
+        <circle cx="100" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <circle cx="110" cy="10" r="4" fill="#d4af37" opacity="0.6"/>
+        <line x1="120" y1="10" x2="200" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="footer-contact">
+      <div class="contact-item">
+        <span>📞</span>
+        <a href="tel:+919876543210">+91 98765 43210</a>
+      </div>
+      <div class="contact-divider">·</div>
+      <div class="contact-item">
+        <span>✉</span>
+        <a href="mailto:priyaarjun2026@gmail.com">priyaarjun2026@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" class="social-link" id="instagram-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      <a href="#" class="social-link" id="whatsapp-link" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+      </a>
+    </div>
+
+    <p class="footer-blessing">May the divine blessings of Lord Ranganatha guide your way to our celebration.</p>
+    <p class="footer-copy">© 2026 Priya &amp; Arjun · Crafted with ❤️ and devotion</p>
+  </div>
+</footer>
+
+<!-- ✅ FIX: paths.js must load FIRST — resolves images for file:// and http:// -->
+<script src="paths.js"></script>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
