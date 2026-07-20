@@ -40,30 +40,81 @@
   const isHTTP         = window.location.protocol === 'http:' ||
                          window.location.protocol === 'https:';
 
-  // ── Artifact absolute path (only valid on file://) ─────────
-  const ARTIFACTS = 'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/';
-
-  // ── Image map: relative name → artifact filename ───────────
-  const IMAGE_MAP = {
-    'temple_bg.png':      ARTIFACTS + 'temple_hero_new_1784287128931.png',
-    'bride.png':          ARTIFACTS + 'bride_portrait_1784285523076.png',
-    'groom.png':          ARTIFACTS + 'groom_portrait_1784285534290.png',
-    'temple_venue.png':   ARTIFACTS + 'temple_venue_1784285553157.png',
-    'reception_venue.png':ARTIFACTS + 'reception_venue_1784285563365.png',
+  // ── Image resolutions (ordered by priority) ─────────────────
+  const IMAGE_RESOLUTIONS = {
+    'temple_bg.png': [
+      './temple_bg.png',
+      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/media__1784300033851.jpg',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/media__1784300033851.jpg',
+      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/temple_bg_1784299694743.png',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/temple_bg_1784299694743.png',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/temple_hero_new_1784287128931.png'
+    ],
+    'couple_bg.png': [
+      './couple_bg.png',
+      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/media__1784301838828.jpg',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/media__1784301838828.jpg'
+    ],
+    'bride.png': [
+      './bride.png',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/bride_portrait_1784285523076.png'
+    ],
+    'groom.png': [
+      './groom.png',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/groom_portrait_1784285534290.png'
+    ],
+    'bride_ghibli.png': [
+      './bride_ghibli.png',
+      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/f96ff7a4-dcd8-4210-bb6d-eebecd985957/bride_ghibli_1784350176157.png'
+    ],
+    'groom_ghibli.png': [
+      './groom_ghibli.png',
+      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/f96ff7a4-dcd8-4210-bb6d-eebecd985957/groom_ghibli_1784350192670.png'
+    ],
+    'temple_venue.png': [
+      './temple_venue.png',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/temple_venue_1784285553157.png'
+    ],
+    'reception_venue.png': [
+      './reception_venue.png',
+      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/reception_venue_1784285563365.png'
+    ]
   };
 
   /**
    * Resolve an image to the correct URL for the current environment.
+   * Runs asynchronously to test file existence on file:// before usage.
    * @param {string} relativeName  e.g. 'bride.png'
-   * @returns {string} URL safe for the current protocol/origin
+   * @param {function} callback    called with the resolved URL
    */
-  function resolveImage(relativeName) {
+  function resolveImage(relativeName, callback) {
     if (isHTTP) {
       // Live Server, production, any HTTP host → relative path wins
-      return './' + relativeName;
+      callback('./' + relativeName);
+      return;
     }
-    // file:// → try relative first, fall back to artifact absolute path
-    return IMAGE_MAP[relativeName] || ('./' + relativeName);
+
+    const urls = IMAGE_RESOLUTIONS[relativeName] || ['./' + relativeName];
+    let index = 0;
+
+    function tryNext() {
+      if (index >= urls.length - 1) {
+        // Fallback to the last URL if everything else failed
+        callback(urls[urls.length - 1]);
+        return;
+      }
+
+      const url = urls[index];
+      const img = new Image();
+      img.onload = () => callback(url);
+      img.onerror = () => {
+        index++;
+        tryNext();
+      };
+      img.src = url;
+    }
+
+    tryNext();
   }
 
   /**
@@ -73,19 +124,12 @@
   function applyImagePaths() {
     document.querySelectorAll('img[data-asset]').forEach(img => {
       const name = img.getAttribute('data-asset');
-      const url  = resolveImage(name);
+      resolveImage(name, (url) => {
+        img.src = url;
+      });
 
-      img.src = url;
-
-      // On HTTP with missing relative file, fall back to artifact
+      // On error, show fallback
       img.onerror = function () {
-        if (isHTTP && IMAGE_MAP[name]) {
-          // This will only work if the artifacts dir is accessible via HTTP,
-          // but at minimum prevents a broken image icon.
-          console.warn('[paths.js] Relative image not found:', name,
-            '→ Place image in the project folder to fix this.');
-        }
-        // Show the placeholder fallback
         const fallback = this.nextElementSibling;
         if (fallback && fallback.classList.contains('portrait-fallback')) {
           this.style.display = 'none';
@@ -100,8 +144,18 @@
    * This patches the CSS rule dynamically so it works on all protocols.
    */
   function applyHeroBg() {
-    const url = resolveImage('temple_bg.png');
-    document.documentElement.style.setProperty('--hero-bg-url', `url('${url}')`);
+    resolveImage('temple_bg.png', (url) => {
+      document.documentElement.style.setProperty('--hero-bg-url', `url('${url}')`);
+    });
+  }
+
+  /**
+   * Inject the couple background URL as a CSS custom property.
+   */
+  function applyCoupleBg() {
+    resolveImage('couple_bg.png', (url) => {
+      document.documentElement.style.setProperty('--couple-bg-url', `url('${url}')`);
+    });
   }
 
   /**
@@ -123,6 +177,7 @@
   function init() {
     logEnv();
     applyHeroBg();
+    applyCoupleBg();
     applyImagePaths();
   }
 

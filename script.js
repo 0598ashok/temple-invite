@@ -235,17 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.hero-bottom-ornament', { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4')
       .from('.scroll-indicator',  { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.2');
 
-    // ── Hero Parallax on Scroll ──────────────────────────────────
-    gsap.to('.hero-bg-image', {
-      yPercent: 30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.hero-section',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1.5,
-      }
-    });
+    // ── Hero Content Scroll Fade ──────────────────────────────────
 
     gsap.to('.hero-content', {
       yPercent: 40,
