@@ -44,11 +44,8 @@
   const IMAGE_RESOLUTIONS = {
     'temple_bg.png': [
       './temple_bg.png',
-      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/media__1784300033851.jpg',
-      'C:/Users/0598a/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/media__1784300033851.jpg',
-      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/temple_bg_1784299694743.png',
-      'C:/Users/0598a/.gemini/antigravity-ide/brain/69c08ad7-a44f-4a04-9d16-113ae0381560/temple_bg_1784299694743.png',
-      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/temple_hero_new_1784287128931.png'
+      './temple_bg.jpg',
+      'https://i.pinimg.com/1200x/ae/a7/6c/aea76c4d4dcf65d2fa1a0d625975d73a.jpg'
     ],
     'couple_bg.png': [
       './couple_bg.png',
@@ -57,10 +54,12 @@
     ],
     'bride.png': [
       './bride.png',
+      './bride_ghibli.png',
       'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/bride_portrait_1784285523076.png'
     ],
     'groom.png': [
       './groom.png',
+      './groom_ghibli.png',
       'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/groom_portrait_1784285534290.png'
     ],
     'bride_ghibli.png': [
@@ -153,7 +152,7 @@
    * Inject the couple background URL as a CSS custom property.
    */
   function applyCoupleBg() {
-    resolveImage('couple_bg.png', (url) => {
+    resolveImage('temple_bg.png', (url) => {
       document.documentElement.style.setProperty('--couple-bg-url', `url('${url}')`);
     });
   }

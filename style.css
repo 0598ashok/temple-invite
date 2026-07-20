@@ -212,18 +212,18 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   SECTION 1 — HERO
+   SECTION 1 — HERO (FIXED PARALLAX BACKGROUND)
    ═══════════════════════════════════════════════════════════════════ */
 .hero-section {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   background:
-    radial-gradient(circle at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.75) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, transparent 40%, rgba(0, 0, 0, 0.75) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.08) 100%),
     var(--hero-bg-url, url('./temple_bg.png'));
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .hero-parallax-bg {
@@ -359,6 +359,7 @@ section {
   text-align: center;
   padding: 2rem;
   z-index: 10;
+  background: radial-gradient(ellipse at center, rgba(14, 7, 3, 0.6) 0%, rgba(14, 7, 3, 0.25) 65%, transparent 100%);
 }
 
 .ornament-svg {
@@ -367,8 +368,8 @@ section {
 
 .hero-om {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--gold);
-  text-shadow: 0 0 40px rgba(212, 175, 55, 0.8), 0 0 80px rgba(212, 175, 55, 0.4);
+  color: #ffd700;
+  text-shadow: 0 0 20px #000, 0 4px 30px #000, 0 0 40px rgba(212, 175, 55, 0.9);
   margin: 1rem 0 0.5rem;
   animation: omGlow 3s ease-in-out infinite;
 }
@@ -377,23 +378,24 @@ section {
 
   0%,
   100% {
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 0 20px #000, 0 4px 30px #000, 0 0 40px rgba(212, 175, 55, 0.9);
   }
 
   50% {
-    text-shadow: 0 0 50px rgba(212, 175, 55, 1), 0 0 100px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 30px #000, 0 6px 40px #000, 0 0 60px rgba(212, 175, 55, 1);
   }
 }
 
 .hero-together {
   font-family: var(--font-cinzel);
-  font-size: clamp(0.65rem, 1.5vw, 0.9rem);
+  font-size: clamp(0.7rem, 1.6vw, 0.95rem);
   letter-spacing: 0.4em;
-  color: var(--gold);
+  color: #ffd700;
+  font-weight: 700;
   text-transform: uppercase;
   opacity: 1;
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px #000, 0 4px 20px rgba(0, 0, 0, 0.95);
 }
 
 /* Temple Bell */
@@ -469,12 +471,13 @@ section {
 
 .hero-name {
   font-family: var(--font-script);
-  font-size: clamp(3rem, 8vw, 7rem);
-  color: var(--gold-light);
+  font-size: clamp(3.2rem, 8.5vw, 7.5rem);
+  color: #ffffff;
   text-shadow:
-    0 0 20px rgba(212, 175, 55, 0.4),
-    0 2px 8px rgba(0, 0, 0, 0.95),
-    0 4px 16px rgba(0, 0, 0, 0.85);
+    0 0 25px rgba(255, 215, 0, 0.8),
+    0 2px 4px #000,
+    0 4px 14px #000,
+    0 8px 30px rgba(0, 0, 0, 0.95);
   line-height: 1;
 }
 
@@ -492,11 +495,11 @@ section {
 .ampersand {
   font-family: var(--font-script);
   font-size: clamp(2rem, 5vw, 4rem);
-  color: var(--gold);
+  color: #ffd700;
   opacity: 1;
   display: none;
   /* shown via mobile */
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px #000, 0 4px 18px rgba(0, 0, 0, 0.9);
 }
 
 /* Invitation Text */
@@ -506,22 +509,24 @@ section {
 
 .tamil-blessing {
   font-family: var(--font-tamil);
-  font-size: clamp(0.85rem, 2vw, 1.1rem);
-  color: var(--gold);
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  color: #ffe066;
+  font-weight: 600;
   opacity: 1;
   margin-bottom: 0.5rem;
   letter-spacing: 0.1em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px #000, 0 4px 18px rgba(0, 0, 0, 0.95);
 }
 
 .invite-message {
   font-family: var(--font-serif);
-  font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.9vw, 1.2rem);
   font-style: italic;
-  color: rgba(253, 246, 227, 0.95);
+  font-weight: 500;
+  color: #ffffff;
   line-height: 1.8;
-  max-width: 480px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.8);
+  max-width: 500px;
+  text-shadow: 0 2px 10px #000, 0 4px 20px rgba(0, 0, 0, 0.95);
 }
 
 /* Hero Details Bar */
@@ -532,11 +537,13 @@ section {
   gap: 1.5rem;
   flex-wrap: wrap;
   margin: 1rem 0;
-  padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(10px);
-  border: var(--border-gold);
+  padding: 1.1rem 2.2rem;
+  background: rgba(14, 7, 3, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(212, 175, 55, 0.75);
   border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.85);
 }
 
 .hero-detail-item {
@@ -547,7 +554,7 @@ section {
 
 .detail-icon {
   font-size: 1.2rem;
-  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.8));
 }
 
 .hero-detail-item div {
@@ -557,18 +564,21 @@ section {
 
 .detail-label {
   font-family: var(--font-cinzel);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   letter-spacing: 0.2em;
-  color: var(--gold);
-  opacity: 0.7;
+  color: #ffd700;
+  font-weight: 700;
+  opacity: 1;
   text-transform: uppercase;
+  text-shadow: 0 1px 4px #000;
 }
 
 .detail-value {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
-  color: var(--gold-light);
-  font-weight: 500;
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 4px #000;
 }
 
 .hero-detail-divider {
@@ -632,28 +642,29 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   SECTION 2 — BRIDE & GROOM
+   SECTION 2 — BRIDE & GROOM (NATURALLY SCROLLING BACKGROUND)
    ═══════════════════════════════════════════════════════════════════ */
 .couple-section {
   position: relative;
   background:
-    linear-gradient(180deg, #0d0802 0%, rgba(0, 0, 0, 0.55) 12%, rgba(0, 0, 0, 0.6) 88%, #120c06 100%),
-    var(--couple-bg-url, url('./couple_bg.png'));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.08) 100%),
+    var(--hero-bg-url, var(--couple-bg-url, url('./temple_bg.png')));
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  image-rendering: -webkit-optimize-contrast;
   padding-bottom: 6rem;
   overflow: hidden;
 }
 
 .couple-section .section-title {
   color: var(--gold-light);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.3);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.85);
 }
 
 .couple-section .section-tag {
   color: var(--gold);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
 .section-bg-pattern {
@@ -684,10 +695,13 @@ section {
 }
 
 .card-inner {
-  background: linear-gradient(145deg, rgba(42, 20, 8, 0.9), rgba(26, 14, 8, 0.95));
-  border: var(--border-gold);
+  background: linear-gradient(145deg, rgba(28, 14, 6, 0.94), rgba(16, 8, 3, 0.97));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(212, 175, 55, 0.7);
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.5s ease;
   position: relative;
@@ -835,39 +849,45 @@ section {
 
 .person-tag {
   font-family: var(--font-cinzel);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   letter-spacing: 0.3em;
-  color: var(--gold);
+  color: #ffd700;
+  font-weight: 700;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 1;
   margin-bottom: 0.5rem;
+  text-shadow: 0 1px 4px #000;
 }
 
 .person-name {
   font-family: var(--font-script);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: var(--gold-light);
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  font-size: clamp(2.2rem, 4.8vw, 3.2rem);
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.7), 0 2px 8px #000, 0 4px 16px rgba(0, 0, 0, 0.9);
   margin-bottom: 0.5rem;
   line-height: 1.1;
 }
 
 .person-parents {
   font-family: var(--font-cinzel);
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   letter-spacing: 0.1em;
-  color: var(--gold);
-  opacity: 0.6;
+  color: #ffe066;
+  font-weight: 600;
+  opacity: 1;
   margin-bottom: 1rem;
+  text-shadow: 0 1px 3px #000;
 }
 
 .person-story {
   font-family: var(--font-serif);
   font-size: 0.95rem;
   line-height: 1.8;
-  color: rgba(253, 246, 227, 0.8);
+  color: #ffffff;
+  font-weight: 500;
   font-style: italic;
   margin-bottom: 1.2rem;
+  text-shadow: 0 1px 4px #000;
 }
 
 .person-accent {
@@ -926,6 +946,8 @@ section {
    SECTION 3 — DETAILS
    ═══════════════════════════════════════════════════════════════════ */
 .details-section {
+  position: relative;
+  z-index: 2;
   padding-bottom: 6rem;
   overflow: hidden;
 }
