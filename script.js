@@ -260,159 +260,87 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // ── Bride & Groom Section ────────────────────────────────────
-    gsap.from('#couple-header', {
-      opacity: 0,
-      y: 60,
-      duration: 1,
-      ease: 'power3.out',
+    // ── Bride & Groom Section (Matching Hero Animation Style & Timing) ──
+    const coupleTl = gsap.timeline({
       scrollTrigger: {
         trigger: '#couple',
-        start: 'top 80%',
+        start: 'top 75%',
         toggleActions: 'play none none none',
       }
     });
 
-    gsap.from('#bride-card', {
-      opacity: 0,
-      x: -100,
-      duration: 1.2,
-      ease: 'power3.out',
+    coupleTl
+      .from('#couple-header .section-tag',   { duration: 0.8, opacity: 0, y: -30, ease: 'power3.out' })
+      .from('#couple-header .section-title', { duration: 1.0, opacity: 0, scale: 0.85, ease: 'back.out(1.7)' }, '-=0.5')
+      .from('#couple-header .section-divider', { duration: 0.8, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out' }, '-=0.5')
+      .from('#bride-card',                  { duration: 1.2, opacity: 0, x: -80, rotateY: -10, ease: 'power3.out' }, '-=0.3')
+      .from('#bride-card .portrait-img',    { duration: 1.2, scale: 1.15, ease: 'power2.out' }, '-=1.2')
+      .from('#bride-card .card-content > *',{ duration: 0.7, opacity: 0, y: 20, stagger: 0.1, ease: 'power2.out' }, '-=0.8')
+      .from('#couple-center',               { duration: 1.0, opacity: 0, scale: 0, ease: 'back.out(2)' }, '-=0.9')
+      .from('#groom-card',                  { duration: 1.2, opacity: 0, x: 80, rotateY: 10, ease: 'power3.out' }, '-=0.9')
+      .from('#groom-card .portrait-img',    { duration: 1.2, scale: 1.15, ease: 'power2.out' }, '-=1.2')
+      .from('#groom-card .card-content > *',{ duration: 0.7, opacity: 0, y: 20, stagger: 0.1, ease: 'power2.out' }, '-=0.8');
+
+    // ── Bride & Groom Content Parallax Scroll Effect ───────────────
+    gsap.to('.couple-container', {
+      yPercent: 12,
+      ease: 'none',
       scrollTrigger: {
         trigger: '#couple',
-        start: 'top 70%',
-        toggleActions: 'play none none none',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.5,
       }
     });
 
-    gsap.from('#couple-center', {
-      opacity: 0,
-      scale: 0,
-      duration: 1,
-      delay: 0.3,
-      ease: 'back.out(2)',
-      scrollTrigger: {
-        trigger: '#couple',
-        start: 'top 65%',
-        toggleActions: 'play none none none',
-      }
-    });
-
-    gsap.from('#groom-card', {
-      opacity: 0,
-      x: 100,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '#couple',
-        start: 'top 70%',
-        toggleActions: 'play none none none',
-      }
-    });
-
-    // ── Details Section ──────────────────────────────────────────
-    gsap.from('#details-header', {
-      opacity: 0,
-      y: 60,
-      duration: 1,
-      ease: 'power3.out',
+    // ── Section 3: Wedding & Reception Timeline ──────────────────
+    const detailsTl = gsap.timeline({
       scrollTrigger: {
         trigger: '#details',
-        start: 'top 80%',
+        start: 'top 92%',
         toggleActions: 'play none none none',
       }
     });
 
-    gsap.from('#wedding-card', {
-      opacity: 0,
-      y: 80,
-      x: -40,
-      duration: 1.2,
-      ease: 'power3.out',
+    detailsTl
+      .from('#details-header .section-tag',   { duration: 0.8, opacity: 0, y: -30, ease: 'power3.out' })
+      .from('#details-header .section-title', { duration: 1.0, opacity: 0, scale: 0.85, ease: 'back.out(1.7)' }, '-=0.5')
+      .from('#details-header .section-divider', { duration: 0.8, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out' }, '-=0.5')
+      .from('#wedding-card',                  { duration: 1.0, opacity: 0, x: -50, y: 30, ease: 'power3.out', clearProps: 'opacity,transform' }, '-=0.3')
+      .from('#reception-card',                { duration: 1.0, opacity: 0, x: 50, y: 30, ease: 'power3.out', clearProps: 'opacity,transform' }, '-=0.8');
+
+    // ── Interactive Map Showcase Timeline ───────────────────────
+    const mapTl = gsap.timeline({
       scrollTrigger: {
-        trigger: '#details',
-        start: 'top 70%',
+        trigger: '#map-embed',
+        start: 'top 90%',
         toggleActions: 'play none none none',
       }
     });
 
-    gsap.from('#reception-card', {
-      opacity: 0,
-      y: 80,
-      x: 40,
-      duration: 1.2,
-      delay: 0.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '#details',
-        start: 'top 70%',
-        toggleActions: 'play none none none',
-      }
-    });
+    mapTl
+      .from('#map-embed .map-tabs .map-tab', { duration: 0.8, opacity: 0, y: -20, stagger: 0.15, ease: 'back.out(1.7)', clearProps: 'opacity,transform' })
+      .from('#map-embed .map-frame-box',      { duration: 1.0, opacity: 0, scale: 0.95, y: 20, ease: 'power3.out', clearProps: 'opacity,transform' }, '-=0.4');
 
-    // ── Location Section ─────────────────────────────────────────
-    gsap.from('#location-header', {
-      opacity: 0,
-      y: 60,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '#location',
-        start: 'top 80%',
-        toggleActions: 'play none none none',
-      }
-    });
-
-    gsap.from('#wedding-location', {
-      opacity: 0,
-      x: -80,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '#location',
-        start: 'top 70%',
-        toggleActions: 'play none none none',
-      }
-    });
-
-    gsap.from('#map-embed', {
-      opacity: 0,
-      scale: 0.85,
-      duration: 1.4,
-      delay: 0.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '#location',
-        start: 'top 70%',
-        toggleActions: 'play none none none',
-      }
-    });
-
-    gsap.from('#reception-location', {
-      opacity: 0,
-      x: 80,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '#location',
-        start: 'top 70%',
-        toggleActions: 'play none none none',
-      }
-    });
-
-    // ── Footer ───────────────────────────────────────────────────
-    gsap.from('#footer .footer-content > *', {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: 'power2.out',
+    // ── Footer Section Timeline (Matching Hero Animation Style & Timing) ──
+    const footerTl = gsap.timeline({
       scrollTrigger: {
         trigger: '#footer',
         start: 'top 85%',
         toggleActions: 'play none none none',
       }
     });
+
+    footerTl
+      .from('.footer-top-ornament', { duration: 1.0, opacity: 0, y: -20, ease: 'power3.out' })
+      .from('.footer-om',           { duration: 1.0, opacity: 0, scale: 0.5, ease: 'back.out(2)' }, '-=0.6')
+      .from('.footer-names',        { duration: 1.0, opacity: 0, y: 25, ease: 'power3.out' }, '-=0.5')
+      .from('.footer-date',         { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out' }, '-=0.4')
+      .from('.footer-tagline',      { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out' }, '-=0.3')
+      .from('.footer-divider',      { duration: 0.8, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out' }, '-=0.4')
+      .from('.footer-contact',      { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.3')
+      .from('.footer-blessing',     { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out' }, '-=0.2')
+      .from('.footer-copy',         { duration: 0.8, opacity: 0, y: 10, ease: 'power2.out' }, '-=0.2');
 
     // ── Parallax on Cards (mouse move 3D tilt) ───────────────────
     document.querySelectorAll('.person-card').forEach(card => {
@@ -475,6 +403,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Scroll-triggered number count (Date countdown) ───────────
     animateWeddingDate();
+
+    // Refresh ScrollTrigger positions after layout calculation
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 400);
   }
 
   // ── Countdown Timer ─────────────────────────────────────────────
@@ -538,3 +471,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// ── Venue Map Switcher ───────────────────────────────────────
+window.switchVenueMap = function(venue) {
+  const iframe = document.getElementById('details-map-iframe');
+  const tabWedding = document.getElementById('tab-wedding');
+  const tabReception = document.getElementById('tab-reception');
+  if (!iframe) return;
+
+  if (venue === 'wedding') {
+    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.85!2d78.6891!3d10.8651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5c9f03e2e69%3A0x5c1b4e1a59f8e0a!2sSri%20Ranganathaswamy%20Temple!5e0!3m2!1sen!2sin!4v1234567890';
+    if (tabWedding) tabWedding.classList.add('active');
+    if (tabReception) tabReception.classList.remove('active');
+  } else {
+    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.05!2d80.2206!3d13.0102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526715f5d55555%3A0x8bb6d9a9f243000!2sITC%20Grand%20Chola!5e0!3m2!1sen!2sin!4v1234567890';
+    if (tabReception) tabReception.classList.add('active');
+    if (tabWedding) tabWedding.classList.remove('active');
+  }
+};
+

@@ -43,6 +43,9 @@
   // ── Image resolutions (ordered by priority) ─────────────────
   const IMAGE_RESOLUTIONS = {
     'temple_bg.png': [
+      './temple_bg_ultra.png',
+      './temple_bg_hd.png',
+      './temple_bg_8k.png',
       './temple_bg.png',
       './temple_bg.jpg',
       'https://i.pinimg.com/1200x/ae/a7/6c/aea76c4d4dcf65d2fa1a0d625975d73a.jpg'
@@ -72,11 +75,11 @@
     ],
     'temple_venue.png': [
       './temple_venue.png',
-      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/temple_venue_1784285553157.png'
+      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/ccaa9753-80bf-4409-b6eb-3661cd5a8212/temple_venue_1784566751435.png'
     ],
     'reception_venue.png': [
       './reception_venue.png',
-      'C:/Users/0598a/.gemini/antigravity-ide/brain/dc9d2c7a-6cc3-44b5-8751-fce3f137d7b6/reception_venue_1784285563365.png'
+      'C:/Users/ADMIN/.gemini/antigravity-ide/brain/ccaa9753-80bf-4409-b6eb-3661cd5a8212/reception_venue_1784566772634.png'
     ]
   };
 
