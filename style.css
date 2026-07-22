@@ -212,25 +212,38 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   FIXED TEMPLE BACKGROUND BACKDROP
+   Keeps the majestic temple gopuram image 100% fixed while names & text move
+   ═══════════════════════════════════════════════════════════════════ */
+.fixed-temple-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -5;
+  background-image:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.05) 25%,
+      rgba(0, 0, 0, 0.15) 75%,
+      rgba(8, 5, 2, 0.85) 100%),
+    var(--hero-bg-url, url('./temple_bg.png'));
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    THREE SECTIONS WRAPPER BACKGROUND (HERO + COUPLE + DETAILS)
-   Full Clarity Panoramic Gopuram Sunset Background Spanning 3 Sections
+   Transparent overlay over the fixed temple background image
    ═══════════════════════════════════════════════════════════════════ */
 .three-sections-wrapper {
   position: relative;
   width: 100%;
-  background-image:
-    linear-gradient(180deg, 
-      rgba(0, 0, 0, 0.12) 0%, 
-      rgba(0, 0, 0, 0.02) 20%, 
-      rgba(0, 0, 0, 0.02) 80%, 
-      rgba(8, 5, 2, 0.90) 100%
-    ),
-    var(--hero-bg-url, url('./temple_bg.png'));
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  image-rendering: -webkit-optimize-contrast;
+  background: transparent;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -662,7 +675,16 @@ section {
    ═══════════════════════════════════════════════════════════════════ */
 .couple-section {
   position: relative;
-  background: transparent;
+  background-image:
+    linear-gradient(180deg,
+      rgba(10, 5, 2, 0.85) 0%,
+      rgba(18, 9, 4, 0.65) 25%,
+      rgba(18, 9, 4, 0.65) 75%,
+      rgba(10, 5, 2, 0.90) 100%),
+    var(--couple-bg-url, url('./couple_bg.png'));
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   padding-bottom: 6rem;
   overflow: hidden;
 }
@@ -681,8 +703,8 @@ section {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.15) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -1709,4 +1731,33 @@ section {
 ::selection {
   background: rgba(212, 175, 55, 0.3);
   color: var(--gold-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TEMPLE NAME MOVING BADGE & HERO VISIBILITY ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════════════ */
+.hero-detail-item.temple-item {
+  background: rgba(20, 10, 5, 0.75);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(14px);
+  border-radius: 50px;
+  padding: 0.6rem 1.4rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-detail-item.temple-item:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: rgba(255, 220, 100, 0.95);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.6);
+}
+
+.temple-name-text {
+  font-family: var(--font-cinzel);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.4);
 }

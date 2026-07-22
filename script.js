@@ -235,16 +235,28 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.hero-bottom-ornament', { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4')
       .from('.scroll-indicator',  { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.2');
 
-    // ── Hero Content Scroll Fade ──────────────────────────────────
-
+    // ── Hero Content & Temple Name Scroll Movement over Fixed Background ──
     gsap.to('.hero-content', {
-      yPercent: 40,
-      opacity: 0,
+      yPercent: -15,
+      opacity: 0.15,
       ease: 'none',
       scrollTrigger: {
         trigger: '.hero-section',
-        start: '30% top',
-        end: '70% top',
+        start: '10% top',
+        end: '90% top',
+        scrub: 1.2,
+      }
+    });
+
+    // Dedicated floating movement for the Temple Name badge on scroll
+    gsap.to('#hero-temple-name-item', {
+      y: -45,
+      scale: 1.06,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero-section',
+        start: 'top top',
+        end: 'bottom top',
         scrub: 1,
       }
     });

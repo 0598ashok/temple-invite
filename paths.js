@@ -35,10 +35,10 @@
 
   // ── Environment detection ──────────────────────────────────
   const isFileProtocol = window.location.protocol === 'file:';
-  const isLocalServer  = window.location.hostname === 'localhost' ||
-                         window.location.hostname === '127.0.0.1';
-  const isHTTP         = window.location.protocol === 'http:' ||
-                         window.location.protocol === 'https:';
+  const isLocalServer = window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1';
+  const isHTTP = window.location.protocol === 'http:' ||
+    window.location.protocol === 'https:';
 
   // ── Image resolutions (ordered by priority) ─────────────────
   const IMAGE_RESOLUTIONS = {
@@ -155,7 +155,7 @@
    * Inject the couple background URL as a CSS custom property.
    */
   function applyCoupleBg() {
-    resolveImage('temple_bg.png', (url) => {
+    resolveImage('couple_bg.png', (url) => {
       document.documentElement.style.setProperty('--couple-bg-url', `url('${url}')`);
     });
   }

@@ -49,6 +49,9 @@
   <!-- ════════════════════════════════════ PETAL CANVAS ════════════════════════════════════ -->
   <canvas id="petal-canvas"></canvas>
 
+  <!-- ════════════════════════════════════ FIXED TEMPLE BACKGROUND LAYER ════════════════════════════════════ -->
+  <div class="fixed-temple-bg" id="fixed-temple-bg"></div>
+
   <!-- ════════════════════════════════════ THREE SECTIONS WRAPPER ════════════════════════════════════ -->
   <div class="three-sections-wrapper">
 
@@ -151,11 +154,11 @@
             </div>
           </div>
           <div class="hero-detail-divider">✦</div>
-          <div class="hero-detail-item">
+          <div class="hero-detail-item temple-item" id="hero-temple-name-item">
             <span class="detail-icon">🛕</span>
             <div>
               <span class="detail-label">Venue</span>
-              <span class="detail-value">Sri Ranganathaswamy Temple</span>
+              <span class="detail-value temple-name-text">Sri Ranganathaswamy Temple</span>
             </div>
           </div>
         </div>
@@ -379,7 +382,8 @@
         <!-- Wedding Ceremony Card -->
         <div class="event-card wedding-card" id="wedding-card">
           <div class="card-venue-img">
-            <img data-asset="temple_venue.png" src="temple_venue.png" alt="Sri Ranganathaswamy Temple Wedding Mandapam" />
+            <img data-asset="temple_venue.png" src="temple_venue.png"
+              alt="Sri Ranganathaswamy Temple Wedding Mandapam" />
             <div class="venue-img-overlay"></div>
           </div>
           <div class="card-glass-body">
@@ -441,7 +445,8 @@
         <!-- Reception Card -->
         <div class="event-card reception-card" id="reception-card">
           <div class="card-venue-img">
-            <img data-asset="reception_venue.png" src="reception_venue.png" alt="The Grand Chola Palace Royal Reception Hall" />
+            <img data-asset="reception_venue.png" src="reception_venue.png"
+              alt="The Grand Chola Palace Royal Reception Hall" />
             <div class="venue-img-overlay"></div>
           </div>
           <div class="card-glass-body">
