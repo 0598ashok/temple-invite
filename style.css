@@ -2219,3 +2219,28 @@ section {
     padding: 0.75rem 1.1rem;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE — Temple Background Centering
+   Keeps the gopuram perfectly centered on portrait screens
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .fixed-temple-bg {
+    background-position: 50% 15%;
+    background-size: cover;
+  }
+}
+
+/* Fine-tune for narrower phones (375px, 390px) */
+@media (max-width: 430px) {
+  .fixed-temple-bg {
+    background-position: 50% 12%;
+  }
+}
+
+/* Smallest phones (320px) */
+@media (max-width: 360px) {
+  .fixed-temple-bg {
+    background-position: 50% 10%;
+  }
+}
