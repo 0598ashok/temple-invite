@@ -4,14 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sacred Union — Sahana & Vijay Wedding Invitation</title>
+
+  <!-- ── Page Title ── -->
+  <title>Wedding Invitation — Chi.La.Sow. Chandini &amp; Chi. Sivakumar | Suggisetti Family</title>
+
+  <!-- ── SEO Meta ── -->
   <meta name="description"
-    content="You are warmly invited to the sacred wedding ceremony of Sahana & Vijay. A traditional South Indian temple wedding celebration." />
+    content="You are warmly invited to the sacred wedding ceremony of Chi.La.Sow. Chandini Naga Venkata Sabari &amp; Chi. China Ranga Venkata Naga Sai Mani Sivakumar on 20th August 2026 at Sri Padmavathi Farm Convention Centre, Eluru." />
+
+  <!-- ── Favicon ── -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <!-- Fallback emoji favicon for browsers that don't support SVG favicons -->
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="data:image/png;base64,iVBORw0KGgo=" />
+  <!-- Apple devices -->
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <!-- ── Fonts ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Noto+Serif+Tamil:wght@300;400;600&display=swap"
     rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -50,487 +65,416 @@
   <canvas id="petal-canvas"></canvas>
 
   <!-- ════════════════════════════════════ FIXED TEMPLE BACKGROUND LAYER ════════════════════════════════════ -->
-  <div class="fixed-temple-bg" id="fixed-temple-bg"></div>
-
-  <!-- ════════════════════════════════════ THREE SECTIONS WRAPPER ════════════════════════════════════ -->
-  <div class="three-sections-wrapper">
-
-    <!-- ════════════════════════════════════ SECTION 1: HERO ════════════════════════════════════ -->
-    <section id="hero" class="hero-section">
-      <div class="hero-parallax-bg" id="hero-bg">
-        <div class="light-rays">
-          <div class="ray ray-1"></div>
-          <div class="ray ray-2"></div>
-          <div class="ray ray-3"></div>
-          <div class="ray ray-4"></div>
-          <div class="ray ray-5"></div>
-        </div>
-        <div class="floating-diyas">
-          <div class="diya diya-1">🪔</div>
-          <div class="diya diya-2">🪔</div>
-          <div class="diya diya-3">🪔</div>
-          <div class="diya diya-4">🪔</div>
-        </div>
-      </div>
-
-      <div class="hero-content" id="hero-content">
-        <div class="hero-top-ornament">
-          <svg viewBox="0 0 400 40" class="ornament-svg">
-            <line x1="0" y1="20" x2="150" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
-            <circle cx="160" cy="20" r="4" fill="#d4af37" opacity="0.8" />
-            <circle cx="175" cy="20" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
-            <circle cx="200" cy="20" r="10" fill="none" stroke="#d4af37" stroke-width="1.5" />
-            <circle cx="200" cy="20" r="4" fill="#d4af37" />
-            <circle cx="225" cy="20" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
-            <circle cx="240" cy="20" r="4" fill="#d4af37" opacity="0.8" />
-            <line x1="250" y1="20" x2="400" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
-          </svg>
-        </div>
-
-        <div class="hero-om">ॐ</div>
-        <p class="hero-together">Together With Their Families</p>
-
-        <div class="hero-bell-container">
-          <div class="bell-wrapper" id="temple-bell">
-            <svg viewBox="0 0 80 100" class="bell-svg">
-              <path
-                d="M40,5 C40,5 20,15 15,40 C10,65 5,75 5,80 C5,80 20,85 40,85 C60,85 75,80 75,80 C75,75 70,65 65,40 C60,15 40,5 40,5Z"
-                fill="url(#bellGrad)" stroke="#d4af37" stroke-width="1.5" />
-              <defs>
-                <linearGradient id="bellGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#d4af37" />
-                  <stop offset="50%" style="stop-color:#f5d47a" />
-                  <stop offset="100%" style="stop-color:#b8942a" />
-                </linearGradient>
-              </defs>
-              <ellipse cx="40" cy="86" rx="15" ry="6" fill="#d4af37" />
-              <circle cx="40" cy="92" r="5" fill="#8b6914" />
-              <line x1="40" y1="5" x2="40" y2="0" stroke="#d4af37" stroke-width="2" />
-              <line x1="30" y1="0" x2="50" y2="0" stroke="#d4af37" stroke-width="2" />
-              <path d="M25,55 Q40,50 55,55" stroke="#b8942a" stroke-width="1" fill="none" />
-              <path d="M22,65 Q40,60 58,65" stroke="#b8942a" stroke-width="1" fill="none" />
-            </svg>
-            <div class="bell-glow"></div>
-          </div>
-        </div>
-
-        <h1 class="hero-names">
-          <span class="bride-name hero-name" id="bride-hero-name">Sahana</span>
-          <span class="name-divider">
-            <svg viewBox="0 0 120 30" class="divider-svg">
-              <line x1="0" y1="15" x2="40" y2="15" stroke="#d4af37" stroke-width="1" />
-              <path d="M45,15 L55,5 L65,15 L55,25 Z" fill="#d4af37" opacity="0.8" />
-              <path d="M70,15 L80,8 L90,15 L80,22 Z" fill="#d4af37" opacity="0.5" />
-              <line x1="95" y1="15" x2="120" y2="15" stroke="#d4af37" stroke-width="1" />
-            </svg>
-            <span class="ampersand">&amp;</span>
-          </span>
-          <span class="groom-name hero-name" id="groom-hero-name">Vijay</span>
-        </h1>
-
-        <div class="hero-invitation-text">
-          <p class="tamil-blessing">வாழ்வில் ஒரு புனித தருணம்</p>
-          <p class="invite-message">
-            "With the blessings of our elders,<br />
-            we warmly invite you to celebrate<br />
-            the sacred union of our hearts."
-          </p>
-        </div>
-
-        <div class="hero-details">
-          <div class="hero-detail-item">
-            <span class="detail-icon">📅</span>
-            <div>
-              <span class="detail-label">Wedding Date</span>
-              <span class="detail-value">February 14, 2026</span>
-            </div>
-          </div>
-          <div class="hero-detail-divider">✦</div>
-          <div class="hero-detail-item">
-            <span class="detail-icon">🕕</span>
-            <div>
-              <span class="detail-label">Auspicious Time</span>
-              <span class="detail-value">6:30 AM — Muhurtham</span>
-            </div>
-          </div>
-          <div class="hero-detail-divider">✦</div>
-          <div class="hero-detail-item temple-item" id="hero-temple-name-item">
-            <span class="detail-icon">🛕</span>
-            <div>
-              <span class="detail-label">Venue</span>
-              <span class="detail-value temple-name-text">Sri Ranganathaswamy Temple</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-bottom-ornament">
-          <svg viewBox="0 0 400 40" class="ornament-svg">
-            <line x1="0" y1="20" x2="150" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
-            <path d="M155,10 L170,20 L155,30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
-            <path d="M175,5 L200,20 L175,35" fill="none" stroke="#d4af37" stroke-width="1.5" />
-            <path d="M225,10 L245,20 L225,30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
-            <line x1="250" y1="20" x2="400" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
-          </svg>
-        </div>
-
-        <div class="scroll-indicator" id="scroll-indicator">
-          <p class="scroll-text">Scroll to Continue</p>
-          <div class="scroll-arrow">
-            <svg viewBox="0 0 40 60" width="40" height="60">
-              <rect x="18" y="2" width="4" height="30" rx="2" fill="#d4af37" opacity="0.6" />
-              <circle cx="20" cy="10" r="4" fill="#d4af37" class="scroll-dot" />
-              <path d="M10,38 L20,50 L30,38" stroke="#d4af37" stroke-width="2" fill="none" opacity="0.8" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════ SECTION 2: BRIDE & GROOM ════════════════════════════════════ -->
-    <section id="couple" class="couple-section">
-      <div class="section-bg-pattern"></div>
-
-      <div class="section-header" id="couple-header">
-        <div class="section-tag">The Couple</div>
-        <h2 class="section-title">A Union Blessed by the Divine</h2>
-        <div class="section-divider">
-          <svg viewBox="0 0 300 20">
-            <line x1="0" y1="10" x2="110" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-            <circle cx="120" cy="10" r="4" fill="#d4af37" />
-            <circle cx="135" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
-            <circle cx="150" cy="10" r="4" fill="#d4af37" />
-            <circle cx="165" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
-            <circle cx="180" cy="10" r="4" fill="#d4af37" />
-            <line x1="190" y1="10" x2="300" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-          </svg>
-        </div>
-      </div>
-
-      <div class="couple-container">
-        <!-- Bride Card (Royal Patrika Scroll) -->
-        <div class="person-card bride-card" id="bride-card">
-          <div class="scroll-handle handle-top">
-            <div class="handle-knob knob-left"></div>
-            <div class="handle-bar"></div>
-            <div class="handle-knob knob-right"></div>
-          </div>
-          <div class="card-inner">
-            <div class="card-portrait-frame">
-              <div class="portrait-border-outer">
-                <div class="portrait-border-inner">
-                  <img data-asset="bride.png" src="bride.png"
-                    alt="Bride Sahana in traditional South Indian bridal attire" class="portrait-img" id="bride-img" />
-                  <div class="portrait-fallback">
-                    <span>🌸</span>
-                    <p>Bride</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portrait-glow bride-glow"></div>
-              <div class="floating-flowers">
-                <span class="flower f1">🌸</span>
-                <span class="flower f2">🌺</span>
-                <span class="flower f3">🌼</span>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="person-tag">The Bride</div>
-              <h3 class="person-name">Sahana Subramaniam</h3>
-              <div class="person-parents">D/o Sri R. Subramaniam &amp; Smt. Lakshmi Subramaniam</div>
-              <p class="person-story">
-                A soul as gentle as jasmine, as radiant as the morning sun. Sahana brings warmth, grace, and boundless
-                love into every room she enters. Her laughter is music, her heart is home.
-              </p>
-              <div class="person-accent">
-                <svg viewBox="0 0 120 20">
-                  <line x1="0" y1="10" x2="40" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-                  <circle cx="50" cy="10" r="4" fill="#e8c14e" />
-                  <circle cx="60" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" />
-                  <circle cx="70" cy="10" r="4" fill="#e8c14e" />
-                  <line x1="80" y1="10" x2="120" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="scroll-handle handle-bottom">
-            <div class="handle-knob knob-left"></div>
-            <div class="handle-bar"></div>
-            <div class="handle-knob knob-right"></div>
-          </div>
-        </div>
-
-        <!-- Center Lotus -->
-        <div class="couple-center" id="couple-center">
-          <div class="lotus-emblem">
-            <svg viewBox="0 0 120 120" class="lotus-svg">
-              <g class="lotus-petals-back">
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(0,60,60) translate(0,-15)" />
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(45,60,60) translate(0,-15)" />
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(90,60,60) translate(0,-15)" />
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(135,60,60) translate(0,-15)" />
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(180,60,60) translate(0,-15)" />
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(225,60,60) translate(0,-15)" />
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(270,60,60) translate(0,-15)" />
-                <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
-                  transform="rotate(315,60,60) translate(0,-15)" />
-              </g>
-              <g class="lotus-petals">
-                <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" />
-                <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(60,60,60)" />
-                <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(120,60,60)" />
-                <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(180,60,60)" />
-                <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(240,60,60)" />
-                <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(300,60,60)" />
-              </g>
-              <circle cx="60" cy="60" r="14" fill="url(#lotusCenterGrad)" />
-              <defs>
-                <radialGradient id="lotusCenterGrad">
-                  <stop offset="0%" style="stop-color:#f5d47a" />
-                  <stop offset="100%" style="stop-color:#d4af37" />
-                </radialGradient>
-              </defs>
-              <text x="60" y="65" text-anchor="middle" font-size="14" fill="#4a2500">❤</text>
-            </svg>
-          </div>
-          <div class="together-text">Together</div>
-          <div class="forever-text">Forever</div>
-        </div>
-
-        <!-- Groom Card (Royal Patrika Scroll) -->
-        <div class="person-card groom-card" id="groom-card">
-          <div class="scroll-handle handle-top">
-            <div class="handle-knob knob-left"></div>
-            <div class="handle-bar"></div>
-            <div class="handle-knob knob-right"></div>
-          </div>
-          <div class="card-inner">
-            <div class="card-portrait-frame">
-              <div class="portrait-border-outer">
-                <div class="portrait-border-inner">
-                  <img data-asset="groom.png" src="groom.png"
-                    alt="Groom Vijay in traditional South Indian wedding attire" class="portrait-img" id="groom-img" />
-                  <div class="portrait-fallback">
-                    <span>🌿</span>
-                    <p>Groom</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portrait-glow groom-glow"></div>
-              <div class="floating-flowers">
-                <span class="flower f1">🌿</span>
-                <span class="flower f2">🌾</span>
-                <span class="flower f3">🍃</span>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="person-tag">The Groom</div>
-              <h3 class="person-name">Vijay Krishnamurthy</h3>
-              <div class="person-parents">S/o Sri K. Krishnamurthy &amp; Smt. Meena Krishnamurthy</div>
-              <p class="person-story">
-                A man of virtue, wisdom, and unwavering devotion. Vijay carries the strength of tradition and the warmth
-                of a thousand sunsets in his heart — a true blessing to all who know him.
-              </p>
-              <div class="person-accent">
-                <svg viewBox="0 0 120 20">
-                  <line x1="0" y1="10" x2="40" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-                  <circle cx="50" cy="10" r="4" fill="#e8c14e" />
-                  <circle cx="60" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" />
-                  <circle cx="70" cy="10" r="4" fill="#e8c14e" />
-                  <line x1="80" y1="10" x2="120" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="scroll-handle handle-bottom">
-            <div class="handle-knob knob-left"></div>
-            <div class="handle-bar"></div>
-            <div class="handle-knob knob-right"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════ SECTION 3: WEDDING DETAILS ════════════════════════════════════ -->
-    <section id="details" class="details-section">
-      <div class="details-bg"></div>
-
-      <div class="section-header" id="details-header">
-        <div class="section-tag">Sacred Celebrations</div>
-        <h2 class="section-title">Wedding &amp; Reception</h2>
-        <div class="section-divider">
-          <svg viewBox="0 0 300 20">
-            <line x1="0" y1="10" x2="110" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-            <circle cx="120" cy="10" r="4" fill="#d4af37" />
-            <circle cx="135" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
-            <circle cx="150" cy="10" r="4" fill="#d4af37" />
-            <circle cx="165" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
-            <circle cx="180" cy="10" r="4" fill="#d4af37" />
-            <line x1="190" y1="10" x2="300" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-          </svg>
-        </div>
-      </div>
-
-      <div class="details-cards">
-
-        <!-- Wedding Ceremony Card -->
-        <div class="event-card wedding-card" id="wedding-card">
-          <div class="card-venue-img">
-            <img data-asset="temple_venue.png" src="temple_venue.png"
-              alt="Sri Ranganathaswamy Temple Wedding Mandapam" />
-            <div class="venue-img-overlay"></div>
-          </div>
-          <div class="card-glass-body">
-            <div class="event-icon">🛕</div>
-            <div class="event-badge">Wedding Ceremony</div>
-            <h3 class="event-title">The Sacred Muhurtham</h3>
-
-            <div class="event-details">
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📅</span>
-                <div class="event-detail-text">
-                  <span class="event-detail-label">Date</span>
-                  <span class="event-detail-value">February 14, 2026 · Saturday</span>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">⏰</span>
-                <div class="event-detail-text">
-                  <span class="event-detail-label">Muhurtham Time</span>
-                  <span class="event-detail-value">6:30 AM — 8:45 AM</span>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📍</span>
-                <div class="event-detail-text">
-                  <span class="event-detail-label">Venue</span>
-                  <span class="event-detail-value">Sri Ranganathaswamy Temple<br /><small>Srirangam, Tiruchirappalli,
-                      Tamil Nadu</small></span>
-                </div>
-              </div>
-            </div>
-
-            <p class="event-description">
-              Join us as Sahana and Vijay exchange sacred vows beneath the divine gopuram, with the chanting of Vedic
-              mantras and the fragrance of jasmine filling the air.
-            </p>
-
-            <div class="event-card-actions">
-              <a href="https://maps.google.com/?q=Sri+Ranganathaswamy+Temple+Srirangam" target="_blank"
-                class="event-map-btn primary-btn" id="wedding-maps-btn">
-                <span>📍</span> Open in Maps
-              </a>
-              <a href="https://maps.google.com/?q=Sri+Ranganathaswamy+Temple+Srirangam&directionsMode=driving"
-                target="_blank" class="event-map-btn secondary-btn" id="wedding-directions-btn">
-                <span>🧭</span> Directions
-              </a>
-            </div>
-
-            <div class="lotus-divider">
-              <span>🪷</span>
-              <svg viewBox="0 0 100 10" width="60">
-                <line x1="0" y1="5" x2="100" y2="5" stroke="#d4af37" stroke-width="1" opacity="0.5" />
-              </svg>
-              <span>🪷</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reception Card -->
-        <div class="event-card reception-card" id="reception-card">
-          <div class="card-venue-img">
-            <img data-asset="reception_venue.png" src="reception_venue.png"
-              alt="The Grand Chola Palace Royal Reception Hall" />
-            <div class="venue-img-overlay"></div>
-          </div>
-          <div class="card-glass-body">
-            <div class="event-icon">🌟</div>
-            <div class="event-badge reception-badge">Grand Reception</div>
-            <h3 class="event-title">The Royal Celebration</h3>
-
-            <div class="event-details">
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📅</span>
-                <div class="event-detail-text">
-                  <span class="event-detail-label">Date</span>
-                  <span class="event-detail-value">February 14, 2026 · Saturday</span>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">⏰</span>
-                <div class="event-detail-text">
-                  <span class="event-detail-label">Time</span>
-                  <span class="event-detail-value">7:00 PM — 10:30 PM</span>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📍</span>
-                <div class="event-detail-text">
-                  <span class="event-detail-label">Venue</span>
-                  <span class="event-detail-value">The Grand Chola Palace<br /><small>Anna Salai, Chennai, Tamil
-                      Nadu</small></span>
-                </div>
-              </div>
-            </div>
-
-            <p class="event-description">
-              An evening of celebration, music, and joy as two families become one. Join us for a grand reception filled
-              with warmth, laughter, and love.
-            </p>
-
-            <div class="event-card-actions">
-              <a href="https://maps.google.com/?q=Grand+Chola+Chennai" target="_blank" class="event-map-btn primary-btn"
-                id="reception-maps-btn">
-                <span>📍</span> Open in Maps
-              </a>
-              <a href="https://maps.google.com/?q=Grand+Chola+Chennai&directionsMode=driving" target="_blank"
-                class="event-map-btn secondary-btn" id="reception-directions-btn">
-                <span>🧭</span> Directions
-              </a>
-            </div>
-
-            <div class="lotus-divider">
-              <span>🌸</span>
-              <svg viewBox="0 0 100 10" width="60">
-                <line x1="0" y1="5" x2="100" y2="5" stroke="#7eb8d4" stroke-width="1" opacity="0.5" />
-              </svg>
-              <span>🌸</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Embedded Interactive Google Map Showcase inside Wedding & Reception Section -->
-      <div class="details-map-showcase" id="map-embed">
-        <div class="map-tabs">
-          <button class="map-tab active" id="tab-wedding" onclick="switchVenueMap('wedding')">
-            <span>🛕</span> Wedding Venue Map (Srirangam)
-          </button>
-          <button class="map-tab" id="tab-reception" onclick="switchVenueMap('reception')">
-            <span>🌟</span> Reception Venue Map (Chennai)
-          </button>
-        </div>
-        <div class="map-frame-box">
-          <iframe id="details-map-iframe"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.85!2d78.6891!3d10.8651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5c9f03e2e69%3A0x5c1b4e1a59f8e0a!2sSri%20Ranganathaswamy%20Temple!5e0!3m2!1sen!2sin!4v1234567890"
-            width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" title="Wedding & Reception venue location map">
-          </iframe>
-          <div class="map-overlay-glow"></div>
-        </div>
-      </div>
-    </section>
+  <div class="fixed-temple-bg" id="fixed-temple-bg">
+    <!-- Soft dark overlay applied ONLY to the background image layer -->
+    <div class="hero-overlay"></div>
   </div>
+
+  <section id="hero" class="hero-section">
+
+
+
+    <div class="hero-parallax-bg" id="hero-bg">
+      <div class="light-rays">
+        <div class="ray ray-1"></div>
+        <div class="ray ray-2"></div>
+        <div class="ray ray-3"></div>
+        <div class="ray ray-4"></div>
+        <div class="ray ray-5"></div>
+      </div>
+      <!-- <div class="floating-diyas">
+        <div class="diya diya-1">🪔</div>
+        <div class="diya diya-2">🪔</div>
+        <div class="diya diya-3">🪔</div>
+        <div class="diya diya-4">🪔</div>
+      </div> -->
+    </div>
+
+    <div class="hero-content" id="hero-content">
+      <div class="hero-top-ornament">
+        <svg viewBox="0 0 400 40" class="ornament-svg">
+          <line x1="0" y1="20" x2="150" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
+          <circle cx="160" cy="20" r="4" fill="#d4af37" opacity="0.8" />
+          <circle cx="175" cy="20" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
+          <circle cx="200" cy="20" r="10" fill="none" stroke="#d4af37" stroke-width="1.5" />
+          <circle cx="200" cy="20" r="4" fill="#d4af37" />
+          <circle cx="225" cy="20" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
+          <circle cx="240" cy="20" r="4" fill="#d4af37" opacity="0.8" />
+          <line x1="250" y1="20" x2="400" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
+        </svg>
+      </div>
+
+      <div class="hero-om">ॐ</div>
+
+      <h1 class="hero-title-cursive" id="hero-title-cursive">Suggisetti's Wedding Invitation</h1>
+
+      <div class="hero-title-divider" id="hero-title-divider">
+        <svg viewBox="0 0 300 30" class="floral-divider-svg">
+          <path
+            d="M10,15 L110,15 C120,15 125,5 135,15 C140,25 145,25 150,15 C155,5 160,5 165,15 C175,25 180,15 190,15 L290,15"
+            fill="none" stroke="#d4af37" stroke-width="1.5" />
+          <circle cx="150" cy="15" r="5" fill="#d4af37" />
+          <circle cx="135" cy="15" r="3" fill="#d4af37" />
+          <circle cx="165" cy="15" r="3" fill="#d4af37" />
+          <path d="M120,15 C125,10 130,10 135,15 C130,20 125,20 120,15 Z" fill="#d4af37" opacity="0.6" />
+          <path d="M180,15 C175,10 170,10 165,15 C170,20 175,20 180,15 Z" fill="#d4af37" opacity="0.6" />
+          <circle cx="110" cy="15" r="2.5" fill="#d4af37" />
+          <circle cx="190" cy="15" r="2.5" fill="#d4af37" />
+        </svg>
+      </div>
+
+      <p class="hero-together" id="hero-together">Together With Their Families</p>
+
+      <div class="hero-bell-container">
+        <div class="bell-wrapper" id="temple-bell">
+          <svg viewBox="0 0 80 100" class="bell-svg">
+            <path
+              d="M40,5 C40,5 20,15 15,40 C10,65 5,75 5,80 C5,80 20,85 40,85 C60,85 75,80 75,80 C75,75 70,65 65,40 C60,15 40,5 40,5Z"
+              fill="url(#bellGrad)" stroke="#d4af37" stroke-width="1.5" />
+            <defs>
+              <linearGradient id="bellGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#d4af37" />
+                <stop offset="50%" style="stop-color:#f5d47a" />
+                <stop offset="100%" style="stop-color:#b8942a" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="40" cy="86" rx="15" ry="6" fill="#d4af37" />
+            <circle cx="40" cy="92" r="5" fill="#8b6914" />
+            <line x1="40" y1="5" x2="40" y2="0" stroke="#d4af37" stroke-width="2" />
+            <line x1="30" y1="0" x2="50" y2="0" stroke="#d4af37" stroke-width="2" />
+            <path d="M25,55 Q40,50 55,55" stroke="#b8942a" stroke-width="1" fill="none" />
+            <path d="M22,65 Q40,60 58,65" stroke="#b8942a" stroke-width="1" fill="none" />
+          </svg>
+          <div class="bell-glow"></div>
+        </div>
+      </div>
+
+      <div class="hero-couple-stack">
+        <!-- Groom Section -->
+        <div class="couple-member-section groom-section" id="groom-hero-section">
+          <span class="member-prefix">Chi.</span>
+          <span class="member-full-name">China Ranga Venkata Naga Sai Mani</span>
+          <h2 class="member-main-name">Sivakumar</h2>
+        </div>
+
+        <!-- Connecting Traditional Motif -->
+        <div class="couple-connector" id="couple-connector">
+          <span class="connector-line left"></span>
+          <span class="connector-symbol">❤️</span>
+          <span class="connector-line right"></span>
+        </div>
+
+        <!-- Bride Section -->
+        <div class="couple-member-section bride-section" id="bride-hero-section">
+          <span class="member-prefix">Chi.La.Sow.</span>
+          <span class="member-full-name">Chandini Naga Venkata Sabari</span>
+          <h2 class="member-main-name">Priya</h2>
+        </div>
+      </div>
+
+      <div class="hero-invitation-text" id="hero-invitation-text">
+        <!-- <p class="telugu-blessing">శుభ పరిణయం</p> -->
+        <p class="invite-message">
+          Together with their families,<br />
+          request the pleasure of your gracious presence<br />
+          to bless the couple on their joyous wedding occasion.
+        </p>
+      </div>
+
+
+
+      <!-- <div class="hero-bottom-ornament">
+        <svg viewBox="0 0 400 40" class="ornament-svg">
+          <line x1="0" y1="20" x2="150" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
+          <path d="M155,10 L170,20 L155,30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
+          <path d="M175,5 L200,20 L175,35" fill="none" stroke="#d4af37" stroke-width="1.5" />
+          <path d="M225,10 L245,20 L225,30" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
+          <line x1="250" y1="20" x2="400" y2="20" stroke="#d4af37" stroke-width="1" opacity="0.6" />
+        </svg>
+      </div> -->
+
+      <!-- <div class="scroll-indicator" id="scroll-indicator">
+        <div class="scroll-arrow">
+          <svg viewBox="0 0 40 60" width="40" height="60">
+            <rect x="18" y="2" width="4" height="30" rx="2" fill="#d4af37" opacity="0.6" />
+            <circle cx="20" cy="10" r="4" fill="#d4af37" class="scroll-dot" />
+            <path d="M10,38 L20,50 L30,38" stroke="#d4af37" stroke-width="2" fill="none" opacity="0.8" />
+          </svg>
+        </div>
+      </div> -->
+    </div>
+  </section>
+  <!-- ════════════════════════════════════ SECTION 2: BRIDE & GROOM ════════════════════════════════════ -->
+  <section id="couple" class="couple-section">
+    <div class="couple-overlay"></div>
+    <div class="section-bg-pattern"></div>
+
+    <div class="section-header" id="couple-header">
+      <div class="section-tag">The Couple</div>
+      <h2 class="section-title">A Union Blessed by the Divine</h2>
+      <div class="section-divider">
+        <svg viewBox="0 0 300 20">
+          <line x1="0" y1="10" x2="110" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+          <circle cx="120" cy="10" r="4" fill="#d4af37" />
+          <circle cx="135" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
+          <circle cx="150" cy="10" r="4" fill="#d4af37" />
+          <circle cx="165" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
+          <circle cx="180" cy="10" r="4" fill="#d4af37" />
+          <line x1="190" y1="10" x2="300" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="couple-container">
+      <!-- Groom Card (Royal Patrika Scroll) -->
+      <div class="person-card groom-card" id="groom-card">
+        <div class="scroll-handle handle-top">
+          <div class="handle-knob knob-left"></div>
+          <div class="handle-bar"></div>
+          <div class="handle-knob knob-right"></div>
+        </div>
+        <div class="card-inner">
+          <div class="card-portrait-frame">
+            <div class="portrait-border-outer">
+              <div class="portrait-border-inner">
+                <img data-asset="groom.png" src="groom.png" alt="Groom Vijay in traditional South Indian wedding attire"
+                  class="portrait-img" id="groom-img" />
+                <div class="portrait-fallback">
+                  <span>🌿</span>
+                  <p>Groom</p>
+                </div>
+              </div>
+            </div>
+            <div class="portrait-glow groom-glow"></div>
+            <div class="floating-flowers">
+              <span class="flower f1">🌿</span>
+              <span class="flower f2">🌾</span>
+              <span class="flower f3">🍃</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="person-tag">The Groom</div>
+            <h3 class="person-name"><span class="person-honorific">Chi.</span>China Ranga Venkata Naga Sai Mani
+              Sivakumar</h3>
+            <div class="person-parents">S/o <br /> Sri Suggisetti Pitcheswara Rao &amp; Smt. Hemalatha</div>
+            <p class="person-story">
+              A man of virtue, wisdom, and unwavering devotion. Sivakumar carries the strength of tradition and the
+              warmth
+              of a thousand sunsets in his heart — a true blessing to all who know him.
+            </p>
+            <div class="person-accent">
+              <svg viewBox="0 0 120 20">
+                <line x1="0" y1="10" x2="40" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+                <circle cx="50" cy="10" r="4" fill="#e8c14e" />
+                <circle cx="60" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" />
+                <circle cx="70" cy="10" r="4" fill="#e8c14e" />
+                <line x1="80" y1="10" x2="120" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-handle handle-bottom">
+          <div class="handle-knob knob-left"></div>
+          <div class="handle-bar"></div>
+          <div class="handle-knob knob-right"></div>
+        </div>
+      </div>
+
+      <!-- Center Lotus -->
+      <div class="couple-center" id="couple-center">
+        <div class="lotus-emblem">
+          <svg viewBox="0 0 120 120" class="lotus-svg">
+            <g class="lotus-petals-back">
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(0,60,60) translate(0,-15)" />
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(45,60,60) translate(0,-15)" />
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(90,60,60) translate(0,-15)" />
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(135,60,60) translate(0,-15)" />
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(180,60,60) translate(0,-15)" />
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(225,60,60) translate(0,-15)" />
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(270,60,60) translate(0,-15)" />
+              <ellipse cx="60" cy="60" rx="12" ry="30" fill="#8b0000" opacity="0.3"
+                transform="rotate(315,60,60) translate(0,-15)" />
+            </g>
+            <g class="lotus-petals">
+              <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" />
+              <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(60,60,60)" />
+              <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(120,60,60)" />
+              <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(180,60,60)" />
+              <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(240,60,60)" />
+              <ellipse cx="60" cy="35" rx="10" ry="22" fill="#d4235a" opacity="0.8" transform="rotate(300,60,60)" />
+            </g>
+            <circle cx="60" cy="60" r="14" fill="url(#lotusCenterGrad)" />
+            <defs>
+              <radialGradient id="lotusCenterGrad">
+                <stop offset="0%" style="stop-color:#f5d47a" />
+                <stop offset="100%" style="stop-color:#d4af37" />
+              </radialGradient>
+            </defs>
+            <text x="60" y="65" text-anchor="middle" font-size="14" fill="#4a2500">❤</text>
+          </svg>
+        </div>
+        <div class="together-text">Together</div>
+        <div class="forever-text">Forever</div>
+      </div>
+
+      <!-- Bride Card (Royal Patrika Scroll) -->
+      <div class="person-card bride-card" id="bride-card">
+        <div class="scroll-handle handle-top">
+          <div class="handle-knob knob-left"></div>
+          <div class="handle-bar"></div>
+          <div class="handle-knob knob-right"></div>
+        </div>
+        <div class="card-inner">
+          <div class="card-portrait-frame">
+            <div class="portrait-border-outer">
+              <div class="portrait-border-inner">
+                <img data-asset="bride.png" src="bride.png" alt="Bride Sahana in traditional South Indian bridal attire"
+                  class="portrait-img" id="bride-img" />
+                <div class="portrait-fallback">
+                  <span>🌸</span>
+                  <p>Bride</p>
+                </div>
+              </div>
+            </div>
+            <div class="portrait-glow bride-glow"></div>
+            <div class="floating-flowers">
+              <span class="flower f1">🌸</span>
+              <span class="flower f2">🌺</span>
+              <span class="flower f3">🌼</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="person-tag">The Bride</div>
+            <h3 class="person-name"><span class="person-honorific">Chi.La.Sow.</span>Chandini Naga Venkata Sabari Priya
+            </h3>
+            <div class="person-parents">
+              D/o<br /> Sri Padarthi Subrahmanyam &amp; Smt. Visalakshi
+              <br /><small
+                style="color: var(--gold-light); font-size: 0.95rem; font-style: italic; opacity: 0.85;">Eluru</small>
+            </div>
+            <p class="person-story">
+              A soul as gentle as jasmine, as radiant as the morning sun. Chandini brings warmth, grace, and boundless
+              love into every room she enters. Her laughter is music, her heart is home.
+            </p>
+            <div class="person-accent">
+              <svg viewBox="0 0 120 20">
+                <line x1="0" y1="10" x2="40" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+                <circle cx="50" cy="10" r="4" fill="#e8c14e" />
+                <circle cx="60" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" />
+                <circle cx="70" cy="10" r="4" fill="#e8c14e" />
+                <line x1="80" y1="10" x2="120" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-handle handle-bottom">
+          <div class="handle-knob knob-left"></div>
+          <div class="handle-bar"></div>
+          <div class="handle-knob knob-right"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════ SECTION 3: WEDDING DETAILS ════════════════════════════════════ -->
+  <section id="details" class="details-section">
+    <div class="details-bg"></div>
+
+    <div class="section-header" id="details-header">
+      <div class="section-tag">Sacred Sumuhurtham</div>
+      <h2 class="section-title">The Sacred Muhurtham</h2>
+      <div class="section-divider">
+        <svg viewBox="0 0 300 20">
+          <line x1="0" y1="10" x2="110" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+          <circle cx="120" cy="10" r="4" fill="#d4af37" />
+          <circle cx="135" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
+          <circle cx="150" cy="10" r="4" fill="#d4af37" />
+          <circle cx="165" cy="10" r="7" fill="none" stroke="#d4af37" stroke-width="1.5" />
+          <circle cx="180" cy="10" r="4" fill="#d4af37" />
+          <line x1="190" y1="10" x2="300" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="open-details-container">
+      <!-- Date & Time Highlight Row -->
+      <div class="open-datetime-row">
+        <div class="open-datetime-block date-highlight">
+          <div class="highlight-accent-border top"></div>
+          <span class="open-label">Date</span>
+          <h3 class="open-value">20 August 2026</h3>
+          <span class="open-sub-value">Thursday</span>
+          <div class="highlight-accent-border bottom"></div>
+        </div>
+
+        <div class="open-datetime-block time-highlight">
+          <div class="highlight-accent-border top"></div>
+          <span class="open-label">Muhurtham Time</span>
+          <h3 class="open-value">3:53 AM</h3>
+          <span class="open-sub-value">Night (Early Hours of Friday)</span>
+          <div class="highlight-accent-border bottom"></div>
+        </div>
+      </div>
+
+      <!-- Astrology Row -->
+      <div class="open-astrology">
+        <span class="astro-tag">Anuradha Nakshatrayuktha</span>
+        <span class="astro-dot">•</span>
+        <span class="astro-tag">Karkataka Lagnam</span>
+      </div>
+
+      <!-- Dinner Timing -->
+      <div class="open-dinner-block">
+        <!-- <div class="dinner-icon">🍽️</div> -->
+        <div class="dinner-label">✤ Dinner ✤</div>
+        <div class="dinner-time">Thursday, 20th August 2026</div>
+        <div class="dinner-sub">from 7:30 p.m. onwards</div>
+      </div>
+
+      <!-- Decorative Divider Line -->
+      <div class="open-divider-line">
+        <span class="open-divider-flower">🪷</span>
+      </div>
+
+      <!-- Venue Wrapper -->
+      <div class="open-venue-wrapper">
+        <div class="venue-header">✤ Venue ✤</div>
+
+        <div class="open-venue-block">
+          <h4 class="open-venue-title">Sri Padmavathi Farm Convention Centre</h4>
+          <p class="open-venue-subtitle">Open Garden Function Hall</p>
+          <p class="open-venue-location">Seetharamapuram, Eluru</p>
+        </div>
+
+        <!-- Divider Below -->
+        <div class="venue-divider-line bottom"></div>
+
+        <!-- Navigation Button -->
+
+        <div class="open-action">
+          <a href="https://maps.google.com/?q=Sri+Padmavathi+Farm+Convention+Centre+Eluru" target="_blank"
+            class="open-venue-link" id="venue-link">
+            <span class="open-btn-content">
+              <span>🧭</span> Navigate to Venue
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ════════════════════════════════════ FOOTER ════════════════════════════════════ -->
   <footer id="footer" class="site-footer">
+
+    <!-- Top ornamental divider -->
     <div class="footer-top-ornament">
       <svg viewBox="0 0 600 60" class="footer-ornament-svg">
         <line x1="0" y1="30" x2="220" y2="30" stroke="#d4af37" stroke-width="1" opacity="0.4" />
@@ -549,50 +493,39 @@
     </div>
 
     <div class="footer-content">
-      <div class="footer-om">ॐ</div>
-      <h2 class="footer-names">Sahana &amp; Vijay</h2>
-      <p class="footer-date">February 14, 2026 · 6:30 AM</p>
-      <p class="footer-tagline">"Your presence is the greatest gift."</p>
 
-      <div class="footer-divider">
-        <svg viewBox="0 0 200 20" width="200">
-          <line x1="0" y1="10" x2="80" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.4" />
-          <circle cx="90" cy="10" r="4" fill="#d4af37" opacity="0.6" />
-          <circle cx="100" cy="10" r="6" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.8" />
-          <circle cx="110" cy="10" r="4" fill="#d4af37" opacity="0.6" />
-          <line x1="120" y1="10" x2="200" y2="10" stroke="#d4af37" stroke-width="1" opacity="0.4" />
+      <!-- OM Symbol -->
+      <div class="footer-om">ॐ</div>
+
+      <!-- Invited By label -->
+      <div class="footer-invited-by-label">✤ Invited By ✤</div>
+
+      <!-- Host names -->
+      <p class="footer-host-name">Sri Suggisetti Pitcheswara Rao</p>
+      <p class="footer-host-name footer-host-name--secondary">Smt. Hemalatha</p>
+
+      <!-- Small SVG ornament -->
+      <div class="footer-mini-ornament">
+        <svg viewBox="0 0 200 14" width="180">
+          <line x1="0" y1="7" x2="75" y2="7" stroke="#d4af37" stroke-width="1" opacity="0.35" />
+          <circle cx="85" cy="7" r="3" fill="#d4af37" opacity="0.6" />
+          <circle cx="100" cy="7" r="5" fill="none" stroke="#d4af37" stroke-width="1.2" opacity="0.75" />
+          <circle cx="115" cy="7" r="3" fill="#d4af37" opacity="0.6" />
+          <line x1="125" y1="7" x2="200" y2="7" stroke="#d4af37" stroke-width="1" opacity="0.35" />
         </svg>
       </div>
 
-      <div class="footer-contact">
-        <div class="contact-item">
-          <span>📞</span>
-          <a href="tel:+919876543210">+91 98765 43210</a>
-        </div>
-        <div class="contact-divider">·</div>
-        <div class="contact-item">
-          <span>✉</span>
-          <a href="mailto:SahanaVijay2026@gmail.com">SahanaVijay2026@gmail.com</a>
-        </div>
-      </div>
+      <!-- Invitation message -->
+      <p class="footer-invite-message">
+        Your gracious presence and blessings will make this joyous occasion truly memorable.
+        We look forward to celebrating together.
+      </p>
 
-      <!-- <div class="footer-social">
-        <a href="#" class="social-link" id="instagram-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-            <path
-              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-          </svg>
-        </a>
-        <a href="#" class="social-link" id="whatsapp-link" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-          </svg>
-        </a>
-      </div> -->
+      <!-- Closing blessing -->
+      <p class="footer-blessing">
+        May the divine blessings of Lord Venkateswara and Goddess Padmavathi guide your way to our celebration.
+      </p>
 
-      <p class="footer-blessing">May the divine blessings of Lord Ranganatha guide your way to our celebration.</p>
-      <p class="footer-copy">© 2026 Sahana &amp; Vijay · Crafted with ❤️ and devotion</p>
     </div>
   </footer>
 

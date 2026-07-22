@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark background -->
+  <rect width="64" height="64" rx="12" fill="#0d0d1a"/>
+  <!-- Gold Om symbol (ॐ) -->
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+        font-family="serif" font-size="42" fill="#d4af37">ॐ</text>
+</svg>

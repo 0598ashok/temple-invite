@@ -225,13 +225,14 @@ document.addEventListener('DOMContentLoaded', () => {
     heroTl
       .from('.hero-top-ornament', { duration: 1.2, opacity: 0, y: -30, ease: 'power3.out' })
       .from('.hero-om',           { duration: 1,   opacity: 0, scale: 0.5, ease: 'back.out(2)' }, '-=0.6')
-      .from('.hero-together',     { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.5')
+      .from('#hero-title-cursive', { duration: 1.2, opacity: 0, y: -20, ease: 'power3.out' }, '-=0.5')
+      .from('#hero-title-divider', { duration: 0.8, opacity: 0, scaleX: 0, ease: 'power2.out' }, '-=0.4')
+      .from('#hero-together',     { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out' }, '-=0.3')
       .from('.hero-bell-container',{ duration: 0.8, opacity: 0, scale: 0, ease: 'back.out(2)' }, '-=0.4')
-      .from('#bride-hero-name',   { duration: 1.2, opacity: 0, x: -80, ease: 'power3.out' }, '-=0.3')
-      .from('.name-divider',      { duration: 0.8, opacity: 0, scale: 0, ease: 'back.out(2)' }, '-=0.6')
-      .from('#groom-hero-name',   { duration: 1.2, opacity: 0, x:  80, ease: 'power3.out' }, '-=0.9')
-      .from('.hero-invitation-text', { duration: 0.9, opacity: 0, y: 30, ease: 'power2.out' }, '-=0.4')
-      .from('.hero-details',      { duration: 0.8, opacity: 0, y: 30, ease: 'power2.out' }, '-=0.3')
+      .from('#groom-hero-section', { duration: 1.2, opacity: 0, y: 30, ease: 'power3.out' }, '-=0.3')
+      .from('#couple-connector',   { duration: 0.8, opacity: 0, scale: 0, ease: 'back.out(2)' }, '-=0.6')
+      .from('#bride-hero-section', { duration: 1.2, opacity: 0, y: 30, ease: 'power3.out' }, '-=0.6')
+      .from('#hero-invitation-text', { duration: 0.9, opacity: 0, y: 25, ease: 'power2.out' }, '-=0.4')
       .from('.hero-bottom-ornament', { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4')
       .from('.scroll-indicator',  { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.2');
 
@@ -285,13 +286,13 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('#couple-header .section-tag',   { duration: 0.8, opacity: 0, y: -30, ease: 'power3.out' })
       .from('#couple-header .section-title', { duration: 1.0, opacity: 0, scale: 0.85, ease: 'back.out(1.7)' }, '-=0.5')
       .from('#couple-header .section-divider', { duration: 0.8, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out' }, '-=0.5')
-      .from('#bride-card',                  { duration: 1.2, opacity: 0, x: -80, rotateY: -10, ease: 'power3.out' }, '-=0.3')
-      .from('#bride-card .portrait-img',    { duration: 1.2, scale: 1.15, ease: 'power2.out' }, '-=1.2')
-      .from('#bride-card .card-content > *',{ duration: 0.7, opacity: 0, y: 20, stagger: 0.1, ease: 'power2.out' }, '-=0.8')
-      .from('#couple-center',               { duration: 1.0, opacity: 0, scale: 0, ease: 'back.out(2)' }, '-=0.9')
-      .from('#groom-card',                  { duration: 1.2, opacity: 0, x: 80, rotateY: 10, ease: 'power3.out' }, '-=0.9')
+      .from('#groom-card',                  { duration: 1.2, opacity: 0, x: -80, rotateY: -10, ease: 'power3.out' }, '-=0.3')
       .from('#groom-card .portrait-img',    { duration: 1.2, scale: 1.15, ease: 'power2.out' }, '-=1.2')
-      .from('#groom-card .card-content > *',{ duration: 0.7, opacity: 0, y: 20, stagger: 0.1, ease: 'power2.out' }, '-=0.8');
+      .from('#groom-card .card-content > *',{ duration: 0.7, opacity: 0, y: 20, stagger: 0.1, ease: 'power2.out' }, '-=0.8')
+      .from('#couple-center',               { duration: 1.0, opacity: 0, scale: 0, ease: 'back.out(2)' }, '-=0.9')
+      .from('#bride-card',                  { duration: 1.2, opacity: 0, x: 80, rotateY: 10, ease: 'power3.out' }, '-=0.9')
+      .from('#bride-card .portrait-img',    { duration: 1.2, scale: 1.15, ease: 'power2.out' }, '-=1.2')
+      .from('#bride-card .card-content > *',{ duration: 0.7, opacity: 0, y: 20, stagger: 0.1, ease: 'power2.out' }, '-=0.8');
 
     // ── Bride & Groom Content Parallax Scroll Effect ───────────────
     gsap.to('.couple-container', {
@@ -305,34 +306,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // ── Section 3: Wedding & Reception Timeline ──────────────────
+    // ── Section 3: Wedding Details (Redesigned) ──────────────────
     const detailsTl = gsap.timeline({
       scrollTrigger: {
         trigger: '#details',
-        start: 'top 92%',
+        start: 'top 95%',
         toggleActions: 'play none none none',
       }
     });
 
     detailsTl
-      .from('#details-header .section-tag',   { duration: 0.8, opacity: 0, y: -30, ease: 'power3.out' })
-      .from('#details-header .section-title', { duration: 1.0, opacity: 0, scale: 0.85, ease: 'back.out(1.7)' }, '-=0.5')
-      .from('#details-header .section-divider', { duration: 0.8, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out' }, '-=0.5')
-      .from('#wedding-card',                  { duration: 1.0, opacity: 0, x: -50, y: 30, ease: 'power3.out', clearProps: 'opacity,transform' }, '-=0.3')
-      .from('#reception-card',                { duration: 1.0, opacity: 0, x: 50, y: 30, ease: 'power3.out', clearProps: 'opacity,transform' }, '-=0.8');
-
-    // ── Interactive Map Showcase Timeline ───────────────────────
-    const mapTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#map-embed',
-        start: 'top 90%',
-        toggleActions: 'play none none none',
-      }
-    });
-
-    mapTl
-      .from('#map-embed .map-tabs .map-tab', { duration: 0.8, opacity: 0, y: -20, stagger: 0.15, ease: 'back.out(1.7)', clearProps: 'opacity,transform' })
-      .from('#map-embed .map-frame-box',      { duration: 1.0, opacity: 0, scale: 0.95, y: 20, ease: 'power3.out', clearProps: 'opacity,transform' }, '-=0.4');
+      .from('#details-header .section-tag',   { duration: 0.8, opacity: 0, y: -30, ease: 'power3.out', clearProps: 'all' })
+      .from('#details-header .section-title', { duration: 1.0, opacity: 0, scale: 0.85, ease: 'back.out(1.7)', clearProps: 'all' }, '-=0.5')
+      .from('#details-header .section-divider', { duration: 0.8, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out', clearProps: 'all' }, '-=0.5')
+      .from('.open-datetime-block',           { duration: 1.0, opacity: 0, y: 35, stagger: 0.25, ease: 'power3.out', clearProps: 'all' }, '-=0.3')
+      .from('.open-astrology',                { duration: 0.8, opacity: 0, scale: 0.95, ease: 'power2.out', clearProps: 'all' }, '-=0.5')
+      .from('.open-venue-link',               { duration: 1.0, opacity: 0, y: 25, ease: 'power3.out', clearProps: 'all' }, '-=0.6');
 
     // ── Footer Section Timeline (Matching Hero Animation Style & Timing) ──
     const footerTl = gsap.timeline({
@@ -344,15 +333,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     footerTl
-      .from('.footer-top-ornament', { duration: 1.0, opacity: 0, y: -20, ease: 'power3.out' })
-      .from('.footer-om',           { duration: 1.0, opacity: 0, scale: 0.5, ease: 'back.out(2)' }, '-=0.6')
-      .from('.footer-names',        { duration: 1.0, opacity: 0, y: 25, ease: 'power3.out' }, '-=0.5')
-      .from('.footer-date',         { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out' }, '-=0.4')
-      .from('.footer-tagline',      { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out' }, '-=0.3')
-      .from('.footer-divider',      { duration: 0.8, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out' }, '-=0.4')
-      .from('.footer-contact',      { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.3')
-      .from('.footer-blessing',     { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out' }, '-=0.2')
-      .from('.footer-copy',         { duration: 0.8, opacity: 0, y: 10, ease: 'power2.out' }, '-=0.2');
+      .from('.footer-top-ornament',     { duration: 1.0, opacity: 0, y: -20, ease: 'power3.out', clearProps: 'all' })
+      .from('.footer-om',               { duration: 1.0, opacity: 0, scale: 0.5, ease: 'back.out(2)', clearProps: 'all' }, '-=0.6')
+      .from('.footer-invited-by-label', { duration: 0.7, opacity: 0, y: 10, ease: 'power2.out', clearProps: 'all' }, '-=0.4')
+      .from('.footer-host-name',        { duration: 0.8, opacity: 0, y: 18, stagger: 0.18, ease: 'power2.out', clearProps: 'all' }, '-=0.3')
+      .from('.footer-mini-ornament',    { duration: 0.6, opacity: 0, scaleX: 0, transformOrigin: 'center', ease: 'power2.out', clearProps: 'all' }, '-=0.2')
+      .from('.footer-invite-message',   { duration: 0.8, opacity: 0, y: 15, ease: 'power2.out', clearProps: 'all' }, '-=0.3')
+      .from('.footer-blessing',         { duration: 0.7, opacity: 0, y: 10, ease: 'power2.out', clearProps: 'all' }, '-=0.2');
 
     // ── Parallax on Cards (mouse move 3D tilt) ───────────────────
     document.querySelectorAll('.person-card').forEach(card => {
@@ -424,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Countdown Timer ─────────────────────────────────────────────
   function animateWeddingDate() {
-    const weddingDate = new Date('2026-02-14T06:30:00+05:30');
+    const weddingDate = new Date('2026-08-20T03:53:00+05:30');
 
     function updateCountdown() {
       const now  = new Date();
@@ -484,21 +471,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// ── Venue Map Switcher ───────────────────────────────────────
-window.switchVenueMap = function(venue) {
-  const iframe = document.getElementById('details-map-iframe');
-  const tabWedding = document.getElementById('tab-wedding');
-  const tabReception = document.getElementById('tab-reception');
-  if (!iframe) return;
 
-  if (venue === 'wedding') {
-    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.85!2d78.6891!3d10.8651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5c9f03e2e69%3A0x5c1b4e1a59f8e0a!2sSri%20Ranganathaswamy%20Temple!5e0!3m2!1sen!2sin!4v1234567890';
-    if (tabWedding) tabWedding.classList.add('active');
-    if (tabReception) tabReception.classList.remove('active');
-  } else {
-    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.05!2d80.2206!3d13.0102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526715f5d55555%3A0x8bb6d9a9f243000!2sITC%20Grand%20Chola!5e0!3m2!1sen!2sin!4v1234567890';
-    if (tabReception) tabReception.classList.add('active');
-    if (tabWedding) tabWedding.classList.remove('active');
-  }
-};
 
