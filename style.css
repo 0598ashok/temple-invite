@@ -45,9 +45,9 @@
 }
 
 html {
-  scroll-behavior: auto;
-  /* Lenis handles this */
+  scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -57,6 +57,61 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Premium Custom Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #140b05;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8b6914, #d4af37, #8b6914);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f5d47a;
+}
+
+/* ─── Lenis Scroll Engine Optimization ────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ─── Hardware Acceleration for Performance ───────────────────────── */
+.fixed-temple-bg,
+#three-canvas,
+#petal-canvas,
+.hero-content,
+.couple-container,
+.person-card,
+.open-details-container,
+.light-rays,
+.ray {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 img {
@@ -262,17 +317,24 @@ section {
    SECTION 1 — HERO
    ═══════════════════════════════════════════════════════════════════ */
 .hero-section {
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   position: relative;
   background: transparent;
+  overflow: hidden;
 }
 
 .hero-parallax-bg {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
   overflow: hidden;
+  pointer-events: none;
 }
 
 /* Light Rays */
@@ -439,23 +501,28 @@ section {
 
 .hero-content {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: clamp(0.5rem, 2vh, 1.5rem) 1.2rem;
   box-sizing: border-box;
-  transform: translateY(-40px);
+  overflow: hidden;
   z-index: 10;
   background: transparent;
+}
+
+.hero-top-ornament {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  flex-shrink: 0;
 }
 
 .ornament-svg {
@@ -465,11 +532,12 @@ section {
 }
 
 .hero-om {
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   color: #ffd700;
   text-shadow: 0 0 15px #000, 0 4px 20px #000, 0 0 30px rgba(212, 175, 55, 0.85);
-  margin: 0.5rem 0 0.25rem;
+  margin: clamp(0.2rem, 1vh, 0.5rem) 0;
   animation: omGlow 3s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 @keyframes omGlow {
@@ -626,8 +694,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  margin: 1.2rem auto;
+  gap: 0.2rem;
+  margin: 0.3rem auto;
   width: 100%;
   max-width: 600px;
 }
@@ -641,34 +709,34 @@ section {
 
 .member-prefix {
   font-family: var(--font-cinzel);
-  font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
   color: var(--gold-light);
   letter-spacing: 0.25em;
   opacity: 0.9;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-  margin-bottom: 0.05rem;
+  margin-bottom: 0.02rem;
   text-transform: uppercase;
 }
 
 .member-full-name {
   font-family: var(--font-serif);
-  font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+  font-size: clamp(0.72rem, 1.4vw, 0.95rem);
   color: var(--ivory-warm);
   letter-spacing: 0.05em;
   font-style: italic;
   opacity: 0.95;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
   text-align: center;
 }
 
 .member-main-name {
   font-family: var(--font-cinzel);
-  font-size: clamp(2rem, 4.8vw, 3.8rem);
+  font-size: clamp(1.6rem, 3.8vw, 3rem);
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0.05em;
-  line-height: 1.15;
+  line-height: 1.1;
   text-align: center;
   background: linear-gradient(to bottom, #ffffff 40%, #fbe69f 85%, #d4af37 100%);
   -webkit-background-clip: text;
@@ -682,13 +750,13 @@ section {
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 1.5rem;
-  margin: 0.2rem 0;
+  gap: 1rem;
+  margin: 0.1rem 0;
 }
 
 .connector-line {
   height: 1px;
-  width: 80px;
+  width: 50px;
   background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
   opacity: 0.5;
 }
@@ -702,7 +770,7 @@ section {
 }
 
 .connector-symbol {
-  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: var(--gold-light);
   filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.85));
   animation: heartbeat 2s infinite ease-in-out;
@@ -722,15 +790,19 @@ section {
 
 /* Invitation Text */
 .hero-invitation-text {
-  margin: 0.5rem 0 1.2rem;
+  position: relative;
+  z-index: 15;
+  margin: 0.2rem auto 0;
+  width: 100%;
+  max-width: 540px;
 }
 
 .telugu-blessing {
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
   color: var(--gold-light);
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
   letter-spacing: 0.05em;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 15px rgba(212, 175, 55, 0.3);
   text-align: center;
@@ -738,14 +810,15 @@ section {
 
 .invite-message {
   font-family: var(--font-serif);
-  font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   font-style: italic;
   font-weight: 500;
   color: #ffffff;
-  line-height: 1.7;
-  max-width: 500px;
-  text-shadow: 0 2px 10px #000, 0 4px 20px rgba(0, 0, 0, 0.95);
+  line-height: 1.5;
+  max-width: 480px;
+  text-shadow: 0 2px 10px #000, 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 15px rgba(212, 175, 55, 0.35);
   margin: 0 auto;
+  letter-spacing: 0.02em;
 }
 
 /* Hero Details Plaque */
@@ -819,7 +892,15 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
+  z-index: 10;
+  text-decoration: none;
   animation: scrollBounce 2s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
 }
 
 .scroll-text {
@@ -921,7 +1002,9 @@ section {
 /* ═══════════════════════════════════════════════════════════════════
    SECTION 2 — BRIDE & GROOM (ROYAL INDIAN SCROLL / PATRIKA DESIGN)
    ═══════════════════════════════════════════════════════════════════ */
-.person-card {
+.person-card,
+.groom-card,
+.bride-card {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -930,6 +1013,10 @@ section {
   cursor: pointer;
   position: relative;
   padding: 18px 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
 
 /* Scroll Handles (Top & Bottom Carved Gold Bar) */
@@ -989,7 +1076,10 @@ section {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 2px solid rgba(212, 175, 55, 0.85);
-  border-radius: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), inset 0 0 25px rgba(212, 175, 55, 0.12);
   transform-style: preserve-3d;
@@ -1191,14 +1281,59 @@ section {
 }
 
 .person-parents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  width: 100%;
+}
+
+.parent-prefix {
+  font-family: var(--font-cinzel);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-light);
+  font-weight: 600;
+  opacity: 0.85;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.parent-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.15rem 0;
+  line-height: 1.4;
+}
+
+.parent-title {
   font-family: var(--font-cinzel);
   font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gold-light);
   letter-spacing: 0.1em;
-  color: #ffe066;
-  font-weight: 600;
-  opacity: 0.95;
-  margin-bottom: 0.8rem;
-  text-shadow: 0 1px 4px #000;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.parent-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 4px #000, 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.parent-location {
+  display: block;
+  color: var(--gold-light);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.85;
+  margin-top: 0.2rem;
 }
 
 .person-story {
@@ -1305,7 +1440,11 @@ section {
   margin-bottom: 2.5rem;
 }
 
-.open-datetime-block {
+.open-datetime-block,
+.date-highlight,
+.time-highlight,
+.date-card,
+.time-card {
   flex: 1;
   max-width: 440px;
   padding: 2rem 1.5rem;
@@ -1314,14 +1453,18 @@ section {
   border-right: 1px solid rgba(212, 175, 55, 0.25);
   position: relative;
   border-radius: 12px;
-  transition: all 0.4s ease;
+  transition: none !important;
 }
 
-.open-datetime-block:hover {
-  background: rgba(212, 175, 55, 0.05);
-  border-color: var(--gold);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transform: translateY(-3px);
+.open-datetime-block:hover,
+.date-highlight:hover,
+.time-highlight:hover,
+.date-card:hover,
+.time-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background: rgba(20, 10, 5, 0.35) !important;
+  border-color: rgba(212, 175, 55, 0.25) !important;
 }
 
 .highlight-accent-border {
@@ -1331,7 +1474,7 @@ section {
   height: 1.5px;
   background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
   opacity: 0.5;
-  transition: opacity 0.3s ease;
+  transition: none !important;
 }
 
 .highlight-accent-border.top {
@@ -1342,8 +1485,10 @@ section {
   bottom: 0;
 }
 
-.open-datetime-block:hover .highlight-accent-border {
-  opacity: 1;
+.open-datetime-block:hover .highlight-accent-border,
+.date-highlight:hover .highlight-accent-border,
+.time-highlight:hover .highlight-accent-border {
+  opacity: 0.5 !important;
 }
 
 .open-label {
@@ -1669,31 +1814,38 @@ section {
   animation: omGlow 3s ease-in-out infinite;
 }
 
-/* "✤ Invited By ✤" label */
+/* "✤ Invited By ✤" label — matches ✤ Venue ✤ heading styling */
 .footer-invited-by-label {
   font-family: var(--font-cinzel);
-  font-size: clamp(0.65rem, 1.3vw, 0.78rem);
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
+  font-size: 1.15rem;
   color: var(--gold);
-  opacity: 0.75;
-  margin-bottom: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  opacity: 1;
 }
 
 /* Host names */
-.footer-host-name {
-  font-family: var(--font-cinzel), var(--font-serif);
-  font-size: clamp(1.05rem, 2.5vw, 1.45rem);
-  font-weight: 600;
-  color: var(--gold-light);
-  margin: 0 0 0.25rem;
+.footer-host-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.35rem 0;
   line-height: 1.4;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
-.footer-host-name--secondary {
-  margin-bottom: 0;
+.footer-host-line .parent-name {
+  font-size: clamp(1.35rem, 2.8vw, 1.7rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 2px 6px #000;
+}
+
+.footer-host-line .parent-title {
+  font-size: 0.75rem;
+  opacity: 0.85;
 }
 
 /* Small SVG ornament between names and message */
@@ -2157,6 +2309,21 @@ section {
   .diya {
     font-size: 1.5rem;
   }
+
+  /* Single-line fit for host names on mobile devices */
+  .footer-host-line {
+    gap: 0.3rem;
+  }
+
+  .footer-host-line .parent-name {
+    white-space: nowrap;
+    font-size: clamp(1.55rem, 4vw, 1.15rem);
+    letter-spacing: -0.2px;
+  }
+
+  .footer-host-line .parent-title {
+    font-size: clamp(0.6rem, 2.5vw, 0.72rem);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -2243,4 +2410,4 @@ section {
   .fixed-temple-bg {
     background-position: 50% 10%;
   }
-}
+}

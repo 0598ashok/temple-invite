@@ -24,28 +24,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ══ LENIS SMOOTH SCROLL ════════════════════════════════════════
   let lenis;
+  let currentScrollY = 0;
+
   try {
     lenis = new Lenis({
-      duration: 1.4,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
+      gestureDirection: 'vertical',
       smooth: true,
-      smoothTouch: false,
+      smoothTouch: true,
+      touchMultiplier: 1.5,
+      wheelMultiplier: 1.0,
+      infinite: false,
     });
 
-    function rafLenis(time) {
-      lenis.raf(time);
-      requestAnimationFrame(rafLenis);
-    }
-    requestAnimationFrame(rafLenis);
+    // Update ScrollTrigger & track current scroll position
+    lenis.on('scroll', (e) => {
+      currentScrollY = e.scroll;
+      ScrollTrigger.update();
+    });
 
-    // Connect Lenis to GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    // Unified GSAP ticker for Lenis RAF (eliminates duplicate RAF stutter)
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
     gsap.ticker.lagSmoothing(0);
+
+    // Initial hash target navigation on load
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          lenis.scrollTo(target, { immediate: true });
+        }, 200);
+      }
+    }
   } catch (e) {
     console.warn('Lenis not loaded, falling back to native scroll:', e);
+    window.addEventListener('scroll', () => { currentScrollY = window.scrollY; }, { passive: true });
   }
+
+  // ══ SMOOTH ANCHOR LINK NAVIGATION ═════════════════════════════
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+
+    const targetId = anchor.getAttribute('href');
+    if (targetId && targetId !== '#' && targetId.length > 1) {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(targetElement, {
+            offset: 0,
+            duration: 1.3,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+          });
+        } else {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  });
 
   // ══ THREE.JS — PARTICLE SYSTEM ════════════════════════════════
   function initThreeJS() {
@@ -119,9 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    let scrollY = 0;
-    window.addEventListener('scroll', () => { scrollY = window.scrollY; });
-
     // Animate
     function animateThree() {
       requestAnimationFrame(animateThree);
@@ -129,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       particles.rotation.y = t * 0.05 + mouseX * 0.3;
       particles.rotation.x = t * 0.02 + mouseY * 0.2;
-      particles.position.y = -scrollY * 0.015;
+      particles.position.y = -currentScrollY * 0.015;
 
       // Pulsing size
       material.opacity = 0.55 + Math.sin(t) * 0.2;
@@ -233,8 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('#couple-connector',   { duration: 0.8, opacity: 0, scale: 0, ease: 'back.out(2)' }, '-=0.6')
       .from('#bride-hero-section', { duration: 1.2, opacity: 0, y: 30, ease: 'power3.out' }, '-=0.6')
       .from('#hero-invitation-text', { duration: 0.9, opacity: 0, y: 25, ease: 'power2.out' }, '-=0.4')
-      .from('.hero-bottom-ornament', { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4')
-      .from('.scroll-indicator',  { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.2');
+      .from('.hero-bottom-ornament', { duration: 0.8, opacity: 0, y: 20, ease: 'power2.out' }, '-=0.4');
 
     // ── Hero Content & Temple Name Scroll Movement over Fixed Background ──
     gsap.to('.hero-content', {
@@ -454,20 +491,34 @@ document.addEventListener('DOMContentLoaded', () => {
   observeSections();
 
   // ── Floating diya glow on scroll ────────────────────────────────
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const sy = window.scrollY;
-    const delta = Math.abs(sy - lastScroll);
-    if (delta > 5) {
-      document.querySelectorAll('.diya').forEach(d => {
-        d.style.filter = `drop-shadow(0 0 ${12 + delta * 0.5}px rgba(255,160,0,0.9))`;
-        setTimeout(() => {
-          d.style.filter = 'drop-shadow(0 0 10px rgba(255,160,0,0.8))';
-        }, 300);
-      });
+  const diyas = document.querySelectorAll('.diya');
+  if (diyas.length > 0) {
+    let lastScroll = 0;
+    let diyaTimeout = null;
+
+    const updateDiyaGlow = (sy) => {
+      const delta = Math.abs(sy - lastScroll);
+      if (delta > 5) {
+        const shadowBlur = Math.min(12 + delta * 0.5, 25);
+        diyas.forEach(d => {
+          d.style.filter = `drop-shadow(0 0 ${shadowBlur}px rgba(255,160,0,0.9))`;
+        });
+        clearTimeout(diyaTimeout);
+        diyaTimeout = setTimeout(() => {
+          diyas.forEach(d => {
+            d.style.filter = 'drop-shadow(0 0 10px rgba(255,160,0,0.8))';
+          });
+        }, 250);
+      }
+      lastScroll = sy;
+    };
+
+    if (lenis) {
+      lenis.on('scroll', ({ scroll }) => updateDiyaGlow(scroll));
+    } else {
+      window.addEventListener('scroll', () => updateDiyaGlow(window.scrollY), { passive: true });
     }
-    lastScroll = sy;
-  });
+  }
 
 });
 
