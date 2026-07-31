@@ -743,6 +743,7 @@ section {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.45));
   margin: 0;
+  white-space: nowrap;
 }
 
 .couple-connector {
@@ -1265,6 +1266,7 @@ section {
   text-shadow: 0 0 22px rgba(255, 215, 0, 0.8), 0 2px 8px #000, 0 4px 16px rgba(0, 0, 0, 0.95);
   margin-bottom: 0.5rem;
   line-height: 1.35;
+  white-space: nowrap;
 }
 
 .person-honorific {
