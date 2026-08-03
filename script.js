@@ -6,20 +6,90 @@
 // ── Wait for DOM ─────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ══ LOADER ═════════════════════════════════════════════════════
+  // ══ LOADER & BACKGROUND MUSIC ══════════════════════════════════
   const loader = document.getElementById('loader');
+  const viewBtn = document.getElementById('view-invitation-btn');
+  const musicToggleBtn = document.getElementById('floating-music-btn');
+  const musicOnIcon = document.getElementById('music-on-icon');
+  const musicOffIcon = document.getElementById('music-off-icon');
 
-  function hideLoader() {
-    loader.classList.add('hidden');
-    setTimeout(() => { loader.style.display = 'none'; }, 900);
-    startAnimations();
+  // Background devotional music API
+  let bgAudio = new Audio('assets/audio/background-music.mp3');
+  bgAudio.loop = true;
+  bgAudio.volume = 0.35;
+  bgAudio.addEventListener('error', () => {
+    bgAudio.src = 'a-r-rahman-dam-tara-dam-tara-dam-dam-flute-instrumental-cover-rohit-kushwaha-flu_BFKAoCx0.mp3';
+  });
+
+  // Disable automatic browser scroll restoration on reload
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+  function resetScrollToTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    if (typeof lenis !== 'undefined' && lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    }
   }
 
-  // Hide loader after resources load
-  if (document.readyState === 'complete') {
-    setTimeout(hideLoader, 1800);
-  } else {
-    window.addEventListener('load', () => setTimeout(hideLoader, 1800));
+  function openInvitation() {
+    // Reset scroll position to top instantly BEFORE revealing landing page
+    resetScrollToTop();
+
+    if (loader) {
+      loader.classList.add('hidden');
+      setTimeout(() => { loader.style.display = 'none'; }, 900);
+    }
+
+    // Show floating music button ONLY after the landing page opens
+    if (musicToggleBtn) {
+      musicToggleBtn.classList.add('visible');
+    }
+
+    startAnimations();
+
+    // Secondary scroll reset after animations start to ensure ScrollTrigger aligns at top
+    setTimeout(resetScrollToTop, 50);
+
+    bgAudio.play().then(() => {
+      showMusicState(true);
+    }).catch((err) => {
+      console.warn('Audio playback deferred:', err);
+    });
+  }
+
+  function showMusicState(isPlaying) {
+    if (isPlaying) {
+      if (musicOnIcon) musicOnIcon.classList.remove('music-icon-hidden');
+      if (musicOffIcon) musicOffIcon.classList.add('music-icon-hidden');
+    } else {
+      if (musicOnIcon) musicOnIcon.classList.add('music-icon-hidden');
+      if (musicOffIcon) musicOffIcon.classList.remove('music-icon-hidden');
+    }
+  }
+
+  function toggleMusic() {
+    if (bgAudio.paused) {
+      bgAudio.play().then(() => {
+        showMusicState(true);
+      }).catch(() => {});
+    } else {
+      bgAudio.pause();
+      showMusicState(false);
+    }
+  }
+
+  if (viewBtn) {
+    viewBtn.addEventListener('click', openInvitation);
+  }
+
+  if (musicToggleBtn) {
+    musicToggleBtn.addEventListener('click', toggleMusic);
   }
 
   // ══ LENIS SMOOTH SCROLL ════════════════════════════════════════

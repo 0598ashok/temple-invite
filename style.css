@@ -223,11 +223,51 @@ a {
 
 .loader-text p {
   font-family: var(--font-cinzel);
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  opacity: 0.7;
-  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  color: var(--gold-light);
+  opacity: 0.9;
+  margin-top: 0.6rem;
+}
+
+/* ─── Sleek Minimalist View Invitation Button ─────────────────────── */
+.loader-view-btn {
+  margin-top: 1.4rem;
+  padding: 0.65rem 1.8rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  user-select: none;
+}
+
+.loader-view-btn:hover {
+  color: #1a0a03;
+  background: linear-gradient(135deg, #d4af37 0%, #f5d47a 100%);
+  border-color: #f5d47a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+.loader-view-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.loader-view-btn:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 4px;
 }
 
 /* ─── SECTION COMMON ─────────────────────────────────────────────── */
@@ -2411,5 +2451,80 @@ section {
 @media (max-width: 360px) {
   .fixed-temple-bg {
     background-position: 50% 10%;
+  }
+}
+
+/* ─── Floating Bottom-Right Music Toggle Button ───────────────────── */
+.floating-music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(20, 10, 5, 0.75);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  color: #f5d47a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.25);
+  cursor: pointer;
+  outline: none;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  user-select: none;
+}
+
+.floating-music-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.floating-music-btn:hover {
+  transform: scale(1.1);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+.floating-music-btn:active {
+  transform: scale(0.95);
+}
+
+.floating-music-btn:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.music-icon {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.music-icon-hidden {
+  display: none !important;
+}
+
+@media (max-width: 480px) {
+  .floating-music-btn {
+    bottom: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+  }
+  .music-icon {
+    width: 20px;
+    height: 20px;
   }
 }
